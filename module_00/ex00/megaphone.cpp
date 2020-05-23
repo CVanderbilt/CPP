@@ -13,8 +13,9 @@ int main(int argc, char *argv[])
         while (i < argc)
         {
             std::string str = argv[i];
-            std::transform(str.begin(), str.end(), str.begin(), ::toupper);
-            std::cout << str;
+            for (std::string::iterator it = str.begin() ; it != str.end(); ++it)
+		        std::cout << (char)toupper(*it);
+
             i++;
         }
     std::cout << std::endl;

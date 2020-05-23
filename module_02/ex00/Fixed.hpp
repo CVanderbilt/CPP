@@ -7,7 +7,7 @@ class Fixed
         static const int    fractional_bits = 8;
     public:
         Fixed(void);
-        Fixed(Fixed &fx);
+        Fixed(const Fixed &fx);
         ~Fixed(void);
         // Overloading of Assignment Operator
         void    operator=(const Fixed &fx);

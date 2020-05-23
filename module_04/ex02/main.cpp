@@ -5,13 +5,23 @@
 #include "AssaultTerminator.hpp"
 #include <iostream>
 
+#define PUSH(sq, name) std::cout << "PUSHING: " << sq->push(name) << std::endl;
+
 int main()
 {
     ISpaceMarine* bob = new TacticalMarine;
     ISpaceMarine* jim = new AssaultTerminator;
+    ISpaceMarine* other = new TacticalMarine;
     ISquad* vlc = new Squad;
-    vlc->push(bob);
-    vlc->push(jim);
+    
+    PUSH (vlc, bob)
+    PUSH (vlc, bob)
+    PUSH (vlc, jim)
+    PUSH (vlc, jim)
+    PUSH (vlc, other)
+    //vlc->push(bob);
+    //vlc->push(jim);
+    //vlc->push(jim);
     for (int i = 0; i < vlc->getCount(); ++i)
     {
         ISpaceMarine* cur = vlc->getUnit(i);

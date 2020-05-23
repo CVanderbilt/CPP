@@ -86,6 +86,6 @@ Fixed    ft_eval_expr_rec(std::string::const_iterator &it, std::string &s)
         else
             it++;
 	}
-    std::cout << "syntax error: " << aux1 << std::endl;
-    return (aux1);
+    //std::cout << "syntax_error: " << aux1 << std::endl;
+    return (0);
 }

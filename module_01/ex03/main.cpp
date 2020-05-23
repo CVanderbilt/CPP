@@ -16,7 +16,7 @@ int main()
     ZombieHorde horde2(67);
     horde2.setNames();
     horde2.setTypes(15, 33, "big");
-    horde2.setTypes(50, 80, "intelectuals");
+    horde2.setTypes(50, 80, "mute");
     horde2.setTypes(44, 44, "special");
     horde2.announce();
 

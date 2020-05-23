@@ -31,6 +31,9 @@ Squad& Squad::operator=(const Squad& s){
 int Squad::push(ISpaceMarine* m_ptr){
     ISpaceMarine **list;
 
+    for (int i = 0; i < this->size; ++i)
+        if (this->arr[i] == m_ptr)
+            return (this->size);
     list = new ISpaceMarine*[this->size + 1];
     for (int i = 0; i < this->size; i++)
         list[i] = this->arr[i];

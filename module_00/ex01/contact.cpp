@@ -41,3 +41,10 @@ void    Contact::displayInfo(void)
     while (++i < 11)
         std::cout << this->field_names[i] << ": " << this->fields[i] << std::endl;
 }
+
+std::string Contact::getField(int idx) const
+{
+    if (idx < 0 || idx > 12)
+        idx = 0;
+    return (this->fields[idx]);
+}

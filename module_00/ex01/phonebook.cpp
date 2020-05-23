@@ -2,10 +2,9 @@
 #include <iostream>
 #include <iomanip>
 
-Phonebook::Phonebook(void)
+Phonebook::Phonebook(void): 
+num(0), list_size(0)
 {
-    this->num = 0;
-    this->list_size = 0;
 }
 
 int     Phonebook::getNum(void){
@@ -51,10 +50,11 @@ void    Phonebook::addContact(void)
 
 void    Phonebook::displayNormedField(int contact, int field)
 {
-    if (this->contacts[contact].fields[field].length() > 10)
-        std::cout << this->contacts[contact].fields[field].substr(0, 9) << ".|";
+    //if (this->contacts[contact].fields[field].length() > 10)
+    if (this->contacts[contact].getField(field).length() > 10)
+        std::cout << this->contacts[contact].getField(field).substr(0, 9) << ".|";
     else
-        std::cout << std::setw(10) << this->contacts[contact].fields[field] << "|";
+        std::cout << std::setw(10) << this->contacts[contact].getField(field) << "|";
 }
 
 void    Phonebook::showContact(int index)

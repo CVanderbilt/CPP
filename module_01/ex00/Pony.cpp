@@ -25,6 +25,6 @@
         }
         void        Pony::doThings(void)
         {
-            std::cout << "Pony named " << this->getName() << "is doing something:" << std::endl;
-            std::cout << "  age: " << this->getAge() << "weight " << this->getWeight() << std::endl;
+            std::cout << "Pony named " << this->getName() << " is doing something:" << std::endl;
+            std::cout << "  age: " << this->getAge() << " weight " << this->getWeight() << std::endl;
         }
