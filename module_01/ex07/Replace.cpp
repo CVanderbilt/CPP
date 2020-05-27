@@ -5,21 +5,17 @@
 #include <string>
 #include <cerrno>
 
-Replace::Replace(void){
-
-}
-
 std::string Replace::get_file_contents(const std::string filename)
 {
-  std::ifstream in(filename, std::ios::in | std::ios::binary);
-  if (in)
-  {
+    std::ifstream in(filename, std::ios::in | std::ios::binary);
+    if (!in.is_open() || !in.good())
+        throw (std::strerror(errno));
+        //std::cout << "replace: " << filename << ": " << std::strerror(errno) << std::endl;
+    
     std::ostringstream contents;
     contents << in.rdbuf();
     in.close();
-    return(contents.str());
-  }
-  throw(errno);
+    return (contents.str());
 }
 
 void Replace::ft_replace

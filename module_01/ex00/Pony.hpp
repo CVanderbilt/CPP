@@ -9,7 +9,7 @@ class Pony
         int weight;
         std::string name;
     public:
-        Pony();
+        Pony(int a, int w, std::string);
         ~Pony();
         
         int         getWeight(void);

@@ -4,7 +4,10 @@
 
 //constructors & destructor:
 Fixed::Fixed(void): value(0){std::cout << "Default constructor called" << std::endl;}
-Fixed::Fixed(const Fixed &fx): value(fx.value){std::cout << "Copy constructor called" << std::endl;}
+Fixed::Fixed(const Fixed &fx){
+    *this = fx;
+    std::cout << "Copy constructor called" << std::endl;
+}
 Fixed::Fixed(float f){std::cout << "Float constructor called" << std::endl; value = roundf(f * (1 << fractional_bits));}
 Fixed::Fixed(int i){std::cout << "Int constructor called" << std::endl; value = i << fractional_bits;}
 Fixed::~Fixed(void){std::cout << "Destructor called" << std::endl;}

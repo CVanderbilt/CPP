@@ -1,10 +1,5 @@
 #include "Human.hpp"
 
-//const std::string Human::actionsNames[] = {"melee", "ranged", "shout"};
-//void (* arr [])(std::string s1, std::string s2) = {
-//    &(Human::meleeAttack);
-//};
-
 void Human::meleeAttack(std::string const & target){
     std::cout << "Human uses melee attack on " << target <<std::endl;
 }
@@ -19,13 +14,11 @@ void Human::intimidatingShout(std::string const & target){
 
 void Human::action(std::string const & action_name, std::string const & target)
 {
-    //std::string names[] = {"melee", "range", "shout"};
-    void (Human::* foo)(std::string const s1);
     long long int i, j, k, n, proof;
     std::string melee = "meleeAttack";
     std::string range = "rangedAttack";
     std::string shout = "intimidatingShout";
-    //uint32_t i, j;
+
     void (Human::* const actions[4])(std::string const &trgt) = {
         NULL,
 		&Human::meleeAttack,

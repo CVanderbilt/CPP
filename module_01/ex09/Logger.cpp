@@ -63,7 +63,7 @@ void Logger::logToFile(std::string entry){
 
 void    Logger::log(std::string const & dest, std::string const & message)
 {
-    int i, j, len;
+    int i, len;
     void (Logger::* actions[3])(std::string trgt) = {
         NULL,
         &Logger::logToConsole,

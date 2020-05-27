@@ -16,8 +16,6 @@ void        Brain::setName(std::string name){
 
 std::string Brain::identify(void) const
 {
-    const long adr = (long)this;
-
     std::stringstream stream;
     stream << std::hex << this;
     std::string result(stream.str());

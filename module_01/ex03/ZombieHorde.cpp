@@ -26,7 +26,6 @@ const std::string ZombieHorde::names_list[] = {
     "Marketta"
 };
 
-ZombieHorde::ZombieHorde(void): list(0), size(0){}
 ZombieHorde::ZombieHorde(int size) : list (new Zombie[size]), size(size){}
 
 ZombieHorde::~ZombieHorde(void)

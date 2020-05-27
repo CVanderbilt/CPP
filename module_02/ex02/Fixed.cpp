@@ -4,7 +4,7 @@
 
 //constructors & destructor:
 Fixed::Fixed(void): value(0){}
-Fixed::Fixed(const Fixed &fx): value(fx.value){}
+Fixed::Fixed(const Fixed &fx){*this = fx;}
 Fixed::Fixed(float f){value = roundf(f * (1 << fractional_bits));}
 Fixed::Fixed(int i){value = i << fractional_bits;}
 Fixed::~Fixed(void){}
@@ -50,11 +50,13 @@ Fixed   &min(Fixed &fx1, Fixed &fx2){
 }
 
 Fixed   const &min(Fixed const &fx1, Fixed const &fx2){
-    return (min(fx1, fx2));
+    if (fx1.getRawBits() <= fx2.getRawBits())
+        return (fx1);
+    return (fx2);
 }
 
 Fixed   &max(Fixed &fx1, Fixed &fx2){
-    if (fx1.getRawBits() >= fx2.getRawBits())
+    if (fx1 >= fx2)
         return (fx1);
     return (fx2);
 }
@@ -64,28 +66,6 @@ Fixed   const &max(Fixed const &fx1, Fixed const &fx2){
         return (fx1);
     return (fx2);
 }
-/*
-Fixed   &Fixed::min(Fixed &fx1, Fixed &fx2){
-    if (fx1 <= fx2)
-        return (fx1);
-    return (fx2);
-}
-
-Fixed   const &Fixed::min(Fixed const &fx1, Fixed const &fx2){
-    return (min(fx1, fx2));
-}
-
-Fixed   &Fixed::max(Fixed &fx1, Fixed &fx2){
-    if (fx1.getRawBits() >= fx2.getRawBits())
-        return (fx1);
-    return (fx2);
-}
-
-Fixed   const &Fixed::max(Fixed const &fx1, Fixed const &fx2){
-    if (fx1.getRawBits() >= fx2.getRawBits())
-        return (fx1);
-    return (fx2);
-}*/
 
 //overriden operators:
 std::ostream& operator<<(std::ostream& os, const Fixed& obj)

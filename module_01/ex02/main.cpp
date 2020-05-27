@@ -10,6 +10,7 @@ int main(void)
     Zombie other_list[5];
     int i;
 
+    std::cout << std::endl;
     srand (time(NULL));
     crawler.setZombieType("crawler");
     small.setZombieType("small");
@@ -18,6 +19,7 @@ int main(void)
         list[i] = crawler.randomChump();
         list[i]->announce();
     }
+    std::cout << std::endl;
     --i;
     while (++i <= 7){
         list[i] = small.randomChump();
@@ -28,6 +30,7 @@ int main(void)
     list[8]->announce();
     list[9]->announce();
     i = -1;
+    std::cout << std::endl;
     while(++i < 10){
         delete(list[i]);
     }

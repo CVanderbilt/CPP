@@ -5,11 +5,10 @@
 class Replace
 {
     private:
-        Replace(void);
+        static std::string get_file_contents(const std::string filename);
     public:
         static void
     ft_replace(std::string filename, std::string to_find, std::string replacement);
-    static std::string get_file_contents(const std::string filename);
 };
 
 #endif

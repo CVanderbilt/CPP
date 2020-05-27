@@ -7,6 +7,7 @@ class HumanA
     private:
         std::string name;
         Weapon &weapon;
+        //Reference or pointer are valid, weapon initialized in constructor
     public:
         HumanA(std::string name, Weapon &weapon);
 

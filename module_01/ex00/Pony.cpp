@@ -1,15 +1,7 @@
         #include "Pony.hpp"
         
-        Pony::Pony()
-        {
-            std::cout << "input age: ";
-            std::cin >> this->age;
-            std::cout << "input weight: ";
-            std::cin >> this->weight;
-            std::cout << "input name: ";
-            std::cin >> this->name;
-            std::cout << "Pony created" << std::endl;
-        }
+        Pony::Pony(int a, int w, std::string name)
+        : age(a), weight(w), name(name){}
         Pony::~Pony()
         {
             std::cout << "Pony named " << this->getName() << " destroyed" << std::endl;

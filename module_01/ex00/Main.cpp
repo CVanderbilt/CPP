@@ -2,7 +2,7 @@
 
 void    ponyOnTheHeap()
 {
-    Pony *pony1 = new Pony;
+    Pony *pony1 = new Pony(10, 100, "heap");
     
     pony1->doThings();
     delete (pony1);
@@ -10,7 +10,7 @@ void    ponyOnTheHeap()
 
 void    ponyOnTheStack()
 {
-    Pony pony1;
+    Pony pony1(13, 100, "stack");
     pony1.doThings();
 }
 

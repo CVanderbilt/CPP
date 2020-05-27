@@ -7,10 +7,9 @@ class ZombieHorde
         static const std::string names_list[];
         static const int names;
         void buildList(int size);
-        int size;
         Zombie *list;
+        int size;
     public:
-        ZombieHorde(void);
         ZombieHorde(int size);
         ~ZombieHorde(void);
         
