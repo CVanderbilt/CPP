@@ -8,6 +8,7 @@ int ft_skip_p(std::string& str, int i, bool direction)
 {
     int d = direction ? 1 : -1;
     int n = d;
+    i += d;
     while (n)
     {
         if (str[i] == ')')
@@ -32,6 +33,8 @@ int ft_check_wrap(std::string& str, int i)
     int ri;
     int li;
     int aux = i;
+    //std::cout << std::endl;
+    //std::cout << str << std::endl; 
     while (--i >= 0 && str[i] && !l)
     {
         //std::cout << "      hacia izq: " << i << std::endl;
@@ -42,7 +45,7 @@ int ft_check_wrap(std::string& str, int i)
         else if (str[i] == '+' || str[i] == '-')
             break ;
     }
-    li = i + 1;
+    li = l ? i : i + 1;
     i = aux;
     while (str[++i] && !r)
     {
@@ -54,11 +57,14 @@ int ft_check_wrap(std::string& str, int i)
         else if (str[i] == '+' || str[i] == '-')
             break ;
     }
-    ri = i+1;
+    ri = r ? i + 1 : i;
     if (!r || !l)
     {
+        //std::cout << "---" << std::endl;
         str.insert(li, left);
+        //std::cout << "---"  << ri << std::endl; 
         str.insert(ri, right);
+        //std::cout << "---" << std::endl;
         return (aux + 1);
     }
     return (aux);
@@ -71,7 +77,7 @@ std::string ft_wrap_muldiv(char *str)
     for (int i = 0; str[i]; i++)
         if (ISOPSIGN(str[i]) || str[i] == '(' || str[i] == ')' || isdigit(str[i]))
             ret.push_back(str[i]);
-    ret = "0+(" + ret + ")";
+    ret = "(0+" + ret + ")";
     for (int i = 0; i < static_cast<int>(ret.length()); i++)
         if (ret[i] == '*' || ret[i] == '/')
             i = ft_check_wrap(ret, i);
@@ -136,6 +142,7 @@ Fixed    ft_eval_expr_rec(std::string::const_iterator &it, std::string &s)
     char op;
     bool op_used = false;
 
+    //std::cout << "kk" << std::endl;
     op = '+';
     std::string::const_iterator it_end = s.cend();
     if (*it == '(')
@@ -180,6 +187,7 @@ Fixed    ft_eval_expr_rec(std::string::const_iterator &it, std::string &s)
                 std::cout << "5" << std::endl;
                 throw std::exception();
             }
+            //std::cout << "Encuentra parentesis" << std::endl;
             it++;
             return (aux1);
         }

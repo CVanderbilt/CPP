@@ -17,8 +17,10 @@ int main(int argc, char *argv[])
     if (argc == 2){
         try
         {
-            //std::cout << "Expresion reducida: >" << ft_wrap_muldiv(argv[1]) << "<" << std::endl;
+            
             s = ft_wrap_muldiv(argv[1]);
+            std::cout << argv[1] << std::endl;
+            std::cout << "Expresion reducida: >" << s << "<" << std::endl;
             it = s.cbegin();
             result = ft_eval_expr_rec(it, s);
             std::cout << "result: " << result << std::endl;
