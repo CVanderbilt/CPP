@@ -8,14 +8,14 @@ int ft_skip_p(std::string& str, int i, bool direction)
 {
     int d = direction ? 1 : -1;
     int n = d;
-    i += d;
+    //i += d;
     while (n)
     {
+        i += d;
         if (str[i] == ')')
             n --;
         if (str[i] == '(')
             n ++;
-        i += d;
         if (i < 0){
             std::cout << "1" << std::endl;
             throw std::exception();
@@ -37,7 +37,7 @@ int ft_check_wrap(std::string& str, int i)
     //std::cout << str << std::endl; 
     while (--i >= 0 && str[i] && !l)
     {
-        //std::cout << "      hacia izq: " << i << std::endl;
+        std::cout << "      hacia izq: " << i << std::endl;
         if (str[i] == '(')
             l = true;
         else if (str[i] == ')')
@@ -49,7 +49,7 @@ int ft_check_wrap(std::string& str, int i)
     i = aux;
     while (str[++i] && !r)
     {
-        //std::cout << "      hacia der: " << i << std::endl;
+        std::cout << "      hacia der: " << i << std::endl;
         if (str[i] == ')')
             r = true;
         else if (str[i] == '(')
@@ -57,9 +57,10 @@ int ft_check_wrap(std::string& str, int i)
         else if (str[i] == '+' || str[i] == '-')
             break ;
     }
-    ri = r ? i + 1 : i;
+    ri = r ? i : i+1;
     if (!r || !l)
     {
+        //(0+(2+9)*10-100*(10-10))
         //std::cout << "---" << std::endl;
         str.insert(li, left);
         //std::cout << "---"  << ri << std::endl; 
@@ -78,6 +79,7 @@ std::string ft_wrap_muldiv(char *str)
         if (ISOPSIGN(str[i]) || str[i] == '(' || str[i] == ')' || isdigit(str[i]))
             ret.push_back(str[i]);
     ret = "(0+" + ret + ")";
+    std::cout << ret << std::endl;
     for (int i = 0; i < static_cast<int>(ret.length()); i++)
         if (ret[i] == '*' || ret[i] == '/')
             i = ft_check_wrap(ret, i);
@@ -141,7 +143,7 @@ Fixed    ft_eval_expr_rec(std::string::const_iterator &it, std::string &s)
     Fixed aux1, aux2, aux3;
     char op;
     bool op_used = false;
-
+//(0+(2+9)*10-100*(10-10))
     //std::cout << "kk" << std::endl;
     op = '+';
     std::string::const_iterator it_end = s.cend();
@@ -160,7 +162,7 @@ Fixed    ft_eval_expr_rec(std::string::const_iterator &it, std::string &s)
         }
         else if (std::isdigit(*it)){
             if (op_used){
-                std::cout << "3" << std::endl;
+                std::cout << "3" << *it << std::endl;
                 throw std::exception();
             }
             aux1 = ft_operate(aux1, ft_atoi_fixed(it, s.cend()), op);
