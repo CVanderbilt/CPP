@@ -12,14 +12,17 @@ class Ninjatrap: virtual public Claptrap
         Ninjatrap(std::string name);
         Ninjatrap(Ninjatrap const &ft);
         ~Ninjatrap(void);
+
+        void meleeAttack(std::string const &target);
+        void rangedAttack(std::string const &target);
+
+        void ninjaShoebox(Claptrap &cp);
         void ninjaShoebox(Fragtrap &ft);
         void ninjaShoebox(Scavtrap &st);
         void ninjaShoebox(Ninjatrap &nt);
         
-        void operator=(Ninjatrap const &ft);
+        Ninjatrap& operator=(Ninjatrap const &ft);
 
-        void meleeAttack(std::string const &target);
-        void rangedAttack(std::string const &target);
 };
 
 #endif

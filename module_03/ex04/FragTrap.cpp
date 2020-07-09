@@ -11,27 +11,27 @@ const std::string Fragtrap::abilities_list[] = {
 
 Fragtrap::Fragtrap(void){
     std::cout << "Default constructor" << std::endl;
-    this->hit_points = 100;
-    this->max_hit_points = 100;
-    this->energy_points = 100;
-    this->max_energy_points = 100;
-    this->melee_damage = 30;
-    this->ranged_damage = 20;
-    this->armor = 5;
-    this->level = 1;
+    hit_points = 100;
+    max_hit_points = 100;
+    energy_points = 100;
+    max_energy_points = 100;
+    melee_damage = 30;
+    ranged_damage = 20;
+    armor = 5;
+    level = 1;
 }
 
 Fragtrap::Fragtrap(std::string otherName){
     std::cout << "Named constructor" << std::endl;
-    this->hit_points = 100;
-    this->max_hit_points = 100;
-    this->energy_points = 100;
-    this->max_energy_points = 100;
-    this->melee_damage = 30;
-    this->ranged_damage = 20;
-    this->armor = 5;
-    this->level = 1;
-    this->name = otherName;
+    hit_points = 100;
+    max_hit_points = 100;
+    energy_points = 100;
+    max_energy_points = 100;
+    melee_damage = 30;
+    ranged_damage = 20;
+    armor = 5;
+    level = 1;
+    name = otherName;
 }
 
 Fragtrap::Fragtrap(Fragtrap const &ft){
@@ -40,10 +40,10 @@ Fragtrap::Fragtrap(Fragtrap const &ft){
 }
 
 Fragtrap::~Fragtrap(void){
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "(FR4G-TP)Destructor called" << std::endl;
 }
 
-void Fragtrap::operator=(const Fragtrap &ft){
+Fragtrap& Fragtrap::operator=(const Fragtrap &ft){
     std::cout << "Asignation operator callled" << std::endl;
     hit_points = ft.getHP();
     max_hit_points = ft.getMaxHP();
@@ -54,14 +54,16 @@ void Fragtrap::operator=(const Fragtrap &ft){
     ranged_damage = ft.getRangedDamage();
     melee_damage = ft.getMeleeDamage();
     armor = ft.getArmor();
+
+    return *(this);
 }
 
 void Fragtrap::meleeAttack(std::string const &target){
-    std::cout << name << " makes a meleee frag attack, dealing " << this->melee_damage << " damage" << std::endl;
+    std::cout << "FR4G-TP" << name << " makes a melee frag attack to " << target << ", dealing " << melee_damage << " damage" << std::endl;
 }
 
 void Fragtrap::rangedAttack(std::string const &target){
-    std::cout << name << " makes a ranged frag attack, dealing " << this->ranged_damage << " damage" << std::endl;
+    std::cout << "FR4G-TP" << name << " makes a melee frag attack to " << target <<", dealing " << ranged_damage << " damage" << std::endl;
 }
 
 void Fragtrap::vaulthunter_dot_exe(std::string const &target){
@@ -73,3 +75,11 @@ void Fragtrap::vaulthunter_dot_exe(std::string const &target){
     else
         std::cout << "Not enought energy points, have " << energy_points << " need: 25" << std::endl;   
 }
+
+int Fragtrap::getInitialMaxHP(void){return (100);}
+int Fragtrap::getInitialHP(void){return (100);}
+int Fragtrap::getInitialMaxEnergy(void){return (100);}
+int Fragtrap::getInitialEnergy(void){return (100);}
+int Fragtrap::getInitialArmor(void){return (5);}
+int Fragtrap::getInitialMeleeDmg(void){return (30);}
+int Fragtrap::getInitialRangedDmg(void){return (20);}

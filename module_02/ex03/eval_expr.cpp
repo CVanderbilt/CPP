@@ -37,7 +37,7 @@ int ft_check_wrap(std::string& str, int i)
     //std::cout << str << std::endl; 
     while (--i >= 0 && str[i] && !l)
     {
-        std::cout << "      hacia izq: " << i << std::endl;
+        //std::cout << "      hacia izq: " << i << std::endl;
         if (str[i] == '(')
             l = true;
         else if (str[i] == ')')
@@ -45,11 +45,11 @@ int ft_check_wrap(std::string& str, int i)
         else if (str[i] == '+' || str[i] == '-')
             break ;
     }
-    li = l ? i : i + 1;
+    li = l ? i + 1: i + 1;
     i = aux;
     while (str[++i] && !r)
     {
-        std::cout << "      hacia der: " << i << std::endl;
+        //std::cout << "      hacia der: " << i << std::endl;
         if (str[i] == ')')
             r = true;
         else if (str[i] == '(')
@@ -66,6 +66,8 @@ int ft_check_wrap(std::string& str, int i)
         //std::cout << "---"  << ri << std::endl; 
         str.insert(ri, right);
         //std::cout << "---" << std::endl;
+        //(0+1+(3*5-8))
+        //std::cout << "inseriones-> en (" << li << "," << ri << ") >" << str << "<" << std::endl;
         return (aux + 1);
     }
     return (aux);
@@ -76,10 +78,9 @@ std::string ft_wrap_muldiv(char *str)
     std::string ret = "";
 
     for (int i = 0; str[i]; i++)
-        if (ISOPSIGN(str[i]) || str[i] == '(' || str[i] == ')' || isdigit(str[i]))
+        if (ISOPSIGN(str[i]) || str[i] == '(' || str[i] == ')' || isdigit(str[i]) || str[i] == '.')
             ret.push_back(str[i]);
     ret = "(0+" + ret + ")";
-    std::cout << ret << std::endl;
     for (int i = 0; i < static_cast<int>(ret.length()); i++)
         if (ret[i] == '*' || ret[i] == '/')
             i = ft_check_wrap(ret, i);
@@ -143,8 +144,7 @@ Fixed    ft_eval_expr_rec(std::string::const_iterator &it, std::string &s)
     Fixed aux1, aux2, aux3;
     char op;
     bool op_used = false;
-//(0+(2+9)*10-100*(10-10))
-    //std::cout << "kk" << std::endl;
+
     op = '+';
     std::string::const_iterator it_end = s.cend();
     if (*it == '(')
@@ -196,6 +196,7 @@ Fixed    ft_eval_expr_rec(std::string::const_iterator &it, std::string &s)
         else
             it++;
 	}
+    //(0+1(+(3*5)-8))
     std::cout << "10" << std::endl;
     throw std::exception();
     return (0);

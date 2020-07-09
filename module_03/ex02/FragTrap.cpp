@@ -40,10 +40,10 @@ Fragtrap::Fragtrap(Fragtrap const &ft){
 }
 
 Fragtrap::~Fragtrap(void){
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "(FR4G-TP)Destructor called" << std::endl;
 }
 
-void Fragtrap::operator=(const Fragtrap &ft){
+Fragtrap& Fragtrap::operator=(const Fragtrap &ft){
     std::cout << "Asignation operator callled" << std::endl;
     hit_points = ft.getHP();
     max_hit_points = ft.getMaxHP();
@@ -54,14 +54,16 @@ void Fragtrap::operator=(const Fragtrap &ft){
     ranged_damage = ft.getRangedDamage();
     melee_damage = ft.getMeleeDamage();
     armor = ft.getArmor();
+
+    return (*this);
 }
 
 void Fragtrap::meleeAttack(std::string const &target){
-    std::cout << name << " makes a meleee frag attack, dealing " << melee_damage << " damage" << std::endl;
+    std::cout << "FR4G-TP" << name << " makes a melee frag attack to " << target << ", dealing " << melee_damage << " damage" << std::endl;
 }
 
 void Fragtrap::rangedAttack(std::string const &target){
-    std::cout << name << " makes a meleee frag attack, dealing " << ranged_damage << " damage" << std::endl;
+    std::cout << "FR4G-TP" << name << " makes a melee frag attack to " << target <<", dealing " << ranged_damage << " damage" << std::endl;
 }
 
 void Fragtrap::vaulthunter_dot_exe(std::string const &target){

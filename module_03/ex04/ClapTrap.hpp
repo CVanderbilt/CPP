@@ -5,7 +5,6 @@
 class Claptrap
 {
     protected:
-        Claptrap(void);
         int hit_points;
         int max_hit_points;
         int energy_points;
@@ -16,13 +15,15 @@ class Claptrap
         int ranged_damage;
         int armor;
     public:
+        Claptrap(void);
         Claptrap(std::string name);
         Claptrap(Claptrap const &ft);
         ~Claptrap(void);
+
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
-        void operator=(Claptrap const &ft);
+        Claptrap& operator=(Claptrap const &ft);
 
         int getHP(void) const;
         int getMaxHP(void) const;

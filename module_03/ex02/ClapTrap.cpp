@@ -1,14 +1,19 @@
 #include "ClapTrap.hpp"
 
-Claptrap::Claptrap(void): level(1){
+Claptrap::Claptrap(void): hit_points(100), max_hit_points(100), energy_points(100), max_energy_points(100),
+                            level(1), name("default_fr4g_tr4p"), melee_damage(30), ranged_damage(20), armor(5){
     std::cout << "(CP)Default constructor" << std::endl;
+}
+
+Claptrap::Claptrap(const Claptrap& cp){
+    *this = cp;
 }
 
 Claptrap::~Claptrap(void){
     std::cout << "(CP)Destructor called" << std::endl;
 }
 
-void Claptrap::operator=(const Claptrap &ft){
+Claptrap& Claptrap::operator=(const Claptrap &ft){
     std::cout << "(CP)Asignation operator callled" << std::endl;
     hit_points = ft.getHP();
     max_hit_points = ft.getMaxHP();
@@ -19,6 +24,8 @@ void Claptrap::operator=(const Claptrap &ft){
     ranged_damage = ft.getRangedDamage();
     melee_damage = ft.getMeleeDamage();
     armor = ft.getArmor();
+
+    return (*this);
 }
 
 void Claptrap::takeDamage(unsigned int amount){

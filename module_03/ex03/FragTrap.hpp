@@ -12,11 +12,14 @@ class Fragtrap: virtual public Claptrap
         Fragtrap(std::string name);
         Fragtrap(Fragtrap const &ft);
         ~Fragtrap(void);
-        void vaulthunter_dot_exe(std::string const & target);
-        
-        void operator=(Fragtrap const &ft);
 
         void meleeAttack(std::string const &target);
         void rangedAttack(std::string const &target);
+        void vaulthunter_dot_exe(std::string const & target);
+        
+        Fragtrap& operator=(Fragtrap const &ft);
+
+        //void meleeAttack(std::string const &target);
+        //void rangedAttack(std::string const &target);
 };
 #endif

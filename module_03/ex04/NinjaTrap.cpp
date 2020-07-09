@@ -36,7 +36,7 @@ Ninjatrap::~Ninjatrap(void){
     std::cout << "(NINJA-TP)Destructor called" << std::endl;
 }
 
-void Ninjatrap::operator=(const Ninjatrap &ft){
+Ninjatrap& Ninjatrap::operator=(const Ninjatrap &ft){
     std::cout << "(NINJA-TP)Asignation operator callled" << std::endl;
     hit_points = ft.getHP();
     max_hit_points = ft.getMaxHP();
@@ -47,14 +47,28 @@ void Ninjatrap::operator=(const Ninjatrap &ft){
     ranged_damage = ft.getRangedDamage();
     melee_damage = ft.getMeleeDamage();
     armor = ft.getArmor();
+
+    return (*this);
 }
 
 void Ninjatrap::meleeAttack(std::string const &target){
-    std::cout << name << " makes a meleee ninja attack, dealing " << this->melee_damage << " damage" << std::endl;
+    std::cout << "NINJA-TP" << name << " makes a melee ninja attack to " << target << ", dealing " << melee_damage << " damage" << std::endl;
 }
 
 void Ninjatrap::rangedAttack(std::string const &target){
-    std::cout << name << " makes a meleee ninja attack, dealing " << this->ranged_damage << " damage" << std::endl;
+    std::cout << "NINJA-TP" << name << " makes a ranged ninja attack to " << target <<", dealing " << ranged_damage << " damage" << std::endl;
+}
+
+void Ninjatrap::ninjaShoebox(Claptrap& cp)
+{
+    std::cout << name << "tries ninja shoebox ability" << std::endl;
+    if (energy_points >= 25){
+        energy_points -= 25;
+        std::cout << name << " ninja steals ability from " << cp.getName() << std::endl;
+        std::cout << "It does nothing as Claptrap doesnt do anything ¯\\_(ツ)_/¯" << std::endl;
+    }
+    else
+        std::cout << "Not enought energy points, have " << energy_points << " need: 25" << std::endl; 
 }
 
 void Ninjatrap::ninjaShoebox(Fragtrap &ft){
@@ -84,5 +98,13 @@ void Ninjatrap::ninjaShoebox(Scavtrap &st){
 
 void Ninjatrap::ninjaShoebox(Ninjatrap &nt){
     std::cout << name << "tries ninja shoebox ability" << std::endl;
-    std::cout << nt.getName() << " unafected ninjas are inmune to ninja abilities" << std::endl;
+    std::cout << nt.getName() << " unafected, ninjas are inmune to ninja abilities" << std::endl;
 }
+
+int Ninjatrap::getInitialMaxHP(void){return (60);}
+int Ninjatrap::getInitialHP(void){return (60);}
+int Ninjatrap::getInitialMaxEnergy(void){return (120);}
+int Ninjatrap::getInitialEnergy(void){return (120);}
+int Ninjatrap::getInitialArmor(void){return (0);}
+int Ninjatrap::getInitialMeleeDmg(void){return (60);}
+int Ninjatrap::getInitialRangedDmg(void){return (5);}

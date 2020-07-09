@@ -26,7 +26,7 @@ class Fragtrap
         void beRepaired(unsigned int amount);
         void vaulthunter_dot_exe(std::string const & target);
         
-        void operator=(Fragtrap const &ft);
+        Fragtrap& operator=(Fragtrap const &ft);
 
         int getHP(void) const;
         int getMaxHP(void) const;

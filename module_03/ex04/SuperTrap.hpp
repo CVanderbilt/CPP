@@ -6,11 +6,14 @@
 # include "NinjaTrap.hpp"
 
 class Supertrap: public Fragtrap, public Ninjatrap{
-    private:
     public:
         Supertrap(void);
         Supertrap(std::string otherName);
+        Supertrap(const Supertrap& sp);
         ~Supertrap(void);
+
+        Supertrap& operator=(const Supertrap&);
+
         void meleeAttack(std::string target);
         void rangedAttack(std::string target);
 };

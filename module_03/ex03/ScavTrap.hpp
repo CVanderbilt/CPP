@@ -12,11 +12,11 @@ class Scavtrap: public Claptrap
         Scavtrap(std::string name);
         Scavtrap(Scavtrap const &ft);
         ~Scavtrap(void);
-        void challengeNewcomer(void);
-        
-        void operator=(Scavtrap const &ft);
 
         void meleeAttack(std::string const &target);
         void rangedAttack(std::string const &target);
+        void challengeNewcomer(void);
+        
+        Scavtrap& operator=(Scavtrap const &ft);
 };
 #endif

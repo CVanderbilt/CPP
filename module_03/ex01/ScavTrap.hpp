@@ -26,7 +26,7 @@ class Scavtrap
         void beRepaired(unsigned int amount);
         void challengeNewcomer(void);
         
-        void operator=(Scavtrap const &ft);
+        Scavtrap& operator=(Scavtrap const &ft);
 
         int getHP(void) const;
         int getMaxHP(void) const;

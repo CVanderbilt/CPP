@@ -10,12 +10,12 @@ const std::string Fragtrap::abilities_list[] = {
 };
 
 Fragtrap::Fragtrap(void): hit_points(100), max_hit_points(100), energy_points(100), max_energy_points(100),
-                            melee_damage(30), ranged_damage(20), armor(5), level(1), name("default_fr4g_tr4p"){
+                            level(1), name("default_fr4g_tr4p"), melee_damage(30), ranged_damage(20), armor(5){
     std::cout << "Default constructor" << std::endl;
 }
 
 Fragtrap::Fragtrap(std::string name): hit_points(100), max_hit_points(100), energy_points(100), max_energy_points(100),
-                            melee_damage(30), ranged_damage(20), armor(5), level (1), name(name){
+                            level(1), name(name), melee_damage(30), ranged_damage(20), armor(5){
     std::cout << "Named constructor" << std::endl;
 }
 
@@ -28,7 +28,7 @@ Fragtrap::~Fragtrap(void){
     std::cout << "Destructor called" << std::endl;
 }
 
-void Fragtrap::operator=(const Fragtrap &ft){
+Fragtrap& Fragtrap::operator=(const Fragtrap &ft){
     std::cout << "Asignation operator callled" << std::endl;
     hit_points = ft.getHP();
     max_hit_points = ft.getMaxHP();
@@ -39,6 +39,8 @@ void Fragtrap::operator=(const Fragtrap &ft){
     ranged_damage = ft.getRangedDamage();
     melee_damage = ft.getMeleeDamage();
     armor = ft.getArmor();
+
+    return (*this);
 }
 
 void Fragtrap::rangedAttack(std::string const & target){

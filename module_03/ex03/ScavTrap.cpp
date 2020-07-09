@@ -44,7 +44,7 @@ Scavtrap::~Scavtrap(void){
     std::cout << "(SC4V-TP)Destructor called" << std::endl;
 }
 
-void Scavtrap::operator=(const Scavtrap &ft){
+Scavtrap& Scavtrap::operator=(const Scavtrap &ft){
     std::cout << "(SC4V-TP)Asignation operator callled" << std::endl;
     hit_points = ft.getHP();
     max_hit_points = ft.getMaxHP();
@@ -55,14 +55,16 @@ void Scavtrap::operator=(const Scavtrap &ft){
     ranged_damage = ft.getRangedDamage();
     melee_damage = ft.getMeleeDamage();
     armor = ft.getArmor();
+
+    return (*this);
 }
 
 void Scavtrap::meleeAttack(std::string const &target){
-    std::cout << name << " makes a meleee ninja attack, dealing " << melee_damage << " damage" << std::endl;
+    std::cout << "SC4V " << name << " makes a melee scav attack to " << target << ", dealing " << melee_damage << " damage" << std::endl;
 }
 
 void Scavtrap::rangedAttack(std::string const &target){
-    std::cout << name << " makes a meleee ninja attack, dealing " << ranged_damage << " damage" << std::endl;
+    std::cout << "SC4V " << name << " makes a randged scav attack to " << target << ", dealing " << ranged_damage << " damage" << std::endl;
 }
 
 void Scavtrap::challengeNewcomer(){
@@ -73,7 +75,7 @@ void Scavtrap::challengeNewcomer(){
     if (aux >= 0){
         energy_points -= 25;
         std::cout << "(SC4V-TP) " << name << " challenges:" << std::endl;
-        std::cout << "'I challenge you to" << challenges_list[rand() % 5] << std::endl;
+        std::cout << "'I challenge you to " << challenges_list[rand() % 5] << std::endl;
     }
     else
         std::cout << "Not enought energy points, have " << energy_points << " need: 25" << std::endl; 

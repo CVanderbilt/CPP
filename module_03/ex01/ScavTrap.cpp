@@ -10,12 +10,12 @@ const std::string Scavtrap::challenges_list[] = {
 };
 
 Scavtrap::Scavtrap(void): hit_points(100), max_hit_points(100), energy_points(50), max_energy_points(50),
-                            melee_damage(20), ranged_damage(15), armor(3), level (1), name("default_sc4v_tr4p"){
+                             level (1), name("default_sc4v_tr4p"), melee_damage(20), ranged_damage(15), armor(3){
     std::cout << "(SC4V-TP)Default constructor" << std::endl;
 }
 
-Scavtrap::Scavtrap(std::string name): hit_points(100), max_hit_points(100), energy_points(100), max_energy_points(100),
-                            melee_damage(30), ranged_damage(20), armor(5), name(name){
+Scavtrap::Scavtrap(std::string name): hit_points(100), max_hit_points(100), energy_points(50), max_energy_points(50),
+                            level(1), name(name), melee_damage(20), ranged_damage(15), armor(3){
     std::cout << "(SC4V-TP)Named constructor" << std::endl;
 }
 
@@ -28,7 +28,7 @@ Scavtrap::~Scavtrap(void){
     std::cout << "(SC4V-TP)Destructor called" << std::endl;
 }
 
-void Scavtrap::operator=(const Scavtrap &ft){
+Scavtrap& Scavtrap::operator=(const Scavtrap &ft){
     std::cout << "(SC4V-TP)Asignation operator callled" << std::endl;
     hit_points = ft.getHP();
     max_hit_points = ft.getMaxHP();
@@ -39,6 +39,8 @@ void Scavtrap::operator=(const Scavtrap &ft){
     ranged_damage = ft.getRangedDamage();
     melee_damage = ft.getMeleeDamage();
     armor = ft.getArmor();
+
+    return (*this);
 }
 
 void Scavtrap::rangedAttack(std::string const & target){
@@ -79,7 +81,7 @@ void Scavtrap::challengeNewcomer(){
     if (aux >= 0){
         energy_points -= 25;
         std::cout << "(SC4V-TP) " << name << " challenges:" << std::endl;
-        std::cout << "'I challenge you to" << challenges_list[rand() % 5] << std::endl;
+        std::cout << "'I challenge you to " << challenges_list[rand() % 5] << std::endl;
     }
     else
         std::cout << "Not enought energy points, have " << energy_points << " need: 25" << std::endl; 

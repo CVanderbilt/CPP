@@ -9,8 +9,6 @@ int ft_check_wrap(std::string& str, int i);
 int main(int argc, char *argv[])
 {
     std::string s;
-    std::string p1 = "(0 + ";
-    std::string p2 = ")";
     std::string::const_iterator it;
     Fixed result;
 
@@ -19,8 +17,8 @@ int main(int argc, char *argv[])
         {
             
             s = ft_wrap_muldiv(argv[1]);
-            std::cout << argv[1] << std::endl;
-            std::cout << "Expresion reducida: >" << s << "<" << std::endl;
+            //std::cout << argv[1] << std::endl;
+            //std::cout << "Expresion reducida: >" << s << "<" << std::endl;
             it = s.cbegin();
             result = ft_eval_expr_rec(it, s);
             std::cout << "result: " << result << std::endl;
