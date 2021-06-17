@@ -8,6 +8,7 @@ RadScorpion::RadScorpion(void):
 
 RadScorpion::RadScorpion(const RadScorpion& r):
     Enemy(80, "RadScorpion"){
+		(void)r;
         std::cout << "* click click click *" << std::endl;
 }
 

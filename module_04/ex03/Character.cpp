@@ -22,7 +22,6 @@ Character& Character::operator=(const Character& c){
 
 void Character::equip(AMateria* m)
 {
-    int index = 0;
     std::cout << "Equip: " << m << "; amount: " << this->amount << std::endl;
     if (!m)
         return ;
@@ -31,7 +30,6 @@ void Character::equip(AMateria* m)
     
     for (int i = 0; i < this->amount; i++)
     {
-        //std::cout << "      LOOP compara: " << this->arr[i] << std::endl;
         if (this->arr[i] == m)
         {
             std::cout << "  Ya lo conoce, m (" << m << ") = arr[i] (" << this->arr[i] << ")" << std::endl; 
@@ -45,7 +43,6 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-    //std::cout << "Unequip: " << idx << "; amount " << this->amount << std::endl;
     if (idx < 0 || idx > 3)
         return ;
     for (int i = idx; i < this->amount && i != 3; i++)
@@ -56,7 +53,6 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter& target)
 {
-    //std::cout << "using: " << idx << "; " << std::endl;
      if (idx >= 0 && idx <= 3)
          if (this->arr[idx])
              this->arr[idx]->use(target);

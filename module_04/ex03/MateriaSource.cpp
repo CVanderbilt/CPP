@@ -18,7 +18,6 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& m){
 
 void MateriaSource::learnMateria(AMateria* m)
 {
-    //std::cout << "Learning..." << std::endl;
     if (this->amount < 3 && this->amount >= 0)
     {
         this->arr[amount] = m->clone();

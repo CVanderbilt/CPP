@@ -1,6 +1,6 @@
 #include "AMateria.hpp"
 
-AMateria::AMateria(std::string const & type): _xp(0), type(type){}
+AMateria::AMateria(std::string const & type): type(type), _xp(0){}
 AMateria::AMateria(const AMateria& m){*this = m;}
 AMateria::~AMateria(void){}
 
@@ -11,7 +11,7 @@ AMateria& AMateria::operator=(const AMateria& m){
 }
 
 void AMateria::use(ICharacter& target){
-    std::cout << "AMateria: " << this->type << " used" << std::endl;
+	(void)target;
     this->_xp += 10;
 }
 
