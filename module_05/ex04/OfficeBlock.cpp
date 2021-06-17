@@ -14,7 +14,7 @@ OfficeBlock::~OfficeBlock(void){}
 
 const char* OfficeBlock::IncompleteOfficeException::what(void) const throw()
 {
-    return ("Closed office, come back tomorrow");
+    return ("Nobody worked on this office for a long time");
 }
 
 void OfficeBlock::doBureaucracy(const std::string& form_name, const std::string& target)
@@ -31,7 +31,6 @@ void OfficeBlock::doBureaucracy(const std::string& form_name, const std::string&
     catch(const std::exception& e)
     {
         throw ;
-        return ;
     }
 
     this->a_signer->signForm(*form);

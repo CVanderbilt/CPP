@@ -9,6 +9,7 @@ class MateriaSource: public IMateriaSource
         void init(void);
         AMateria* arr[4];
         int amount;
+		AMateria* getMateria(int idx) const;
     public:
         MateriaSource(void);
         MateriaSource(const MateriaSource&);
@@ -19,7 +20,6 @@ class MateriaSource: public IMateriaSource
         void learnMateria(AMateria*);
         AMateria* createMateria(std::string const& type);
 
-        AMateria* getMateria(int idx) const;
         int getAmount(void) const;
 };
 

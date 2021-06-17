@@ -13,7 +13,7 @@ Character::~Character(void){
 Character& Character::operator=(const Character& c){
     this->name = c.getName();
     for (int i = 0; i <= this->amount; i++)
-        delete (this->arr[i]);
+    	this->arr[i] = 0;
     for (int i = 0; i <= c.getAmount(); i++)
         this->arr[i] = c.getMateria(i)->clone();
     this->amount = c.getAmount();

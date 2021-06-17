@@ -27,7 +27,7 @@ Intern& Intern::operator=(const Intern& i){
 //Others
 const char* Intern::UnrecognisedFormException::what(void) const throw()
 {
-    return ("No, you need form 28B, not 28C (Wrong Format)");
+    return ("Form name not recognised, remember using format NamedTypedForm or else this form doesnt exist");
 }
 
 Form* Intern::makeForm(const std::string& form, const std::string& target)

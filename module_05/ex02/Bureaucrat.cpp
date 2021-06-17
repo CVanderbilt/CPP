@@ -1,24 +1,22 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-//Creators & destructos
 Bureaucrat::Bureaucrat(const std::string name, int grade): a_name(name), a_grade(grade){
-        if (grade < 1)
+        if (grade < 1){
+			this->a_grade = 150;
             throw (Bureaucrat::GradeTooHighException());
-        if (grade > 150)
-            throw (Bureaucrat::GradeTooLowException());
+		}
+		if (grade > 150){
+			this->a_grade = 150;
+		    throw (Bureaucrat::GradeTooLowException());
+		}
 }
 Bureaucrat::Bureaucrat(const Bureaucrat& b){*this = b;}
 Bureaucrat::~Bureaucrat(void){}
 
-//operators
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b){
     this->a_name = b.getName();
     this->a_grade = b.getGrade();
-    if (this->a_grade < 1)
-        throw (Bureaucrat::GradeTooHighException());
-    if (this->a_grade > 150)
-        throw (Bureaucrat::GradeTooLowException());
     return (*this);
 }
 
@@ -27,7 +25,6 @@ std::ostream&   operator<<(std::ostream& os, const Bureaucrat& obj){
     return (os);
 }
 
-//Other
 const char* Bureaucrat::GradeTooHighException::what(void) const throw()
 {
     return ("Grade to high");
@@ -40,20 +37,18 @@ const char* Bureaucrat::GradeTooLowException::what(void) const throw()
 
 void Bureaucrat::increment(void)
 {
-    this->a_grade--;
-    if (this->a_grade < 1)
+    if (this->a_grade == 1)
         throw (Bureaucrat::GradeTooHighException());
-    if (this->a_grade > 150)
-        throw (Bureaucrat::GradeTooLowException());
+	else
+		this->a_grade--;
 }
 
 void Bureaucrat::decrement(void)
 {
-    this->a_grade++;
-    if (this->a_grade < 1)
-        throw (Bureaucrat::GradeTooHighException());
-    if (this->a_grade > 150)
+    if (this->a_grade == 150)
         throw (Bureaucrat::GradeTooLowException());
+	else
+		this->a_grade++;
 }
 
 void Bureaucrat::signForm(Form& f)
@@ -82,6 +77,5 @@ void Bureaucrat::executeForm(const Form& f)
     }
 }
 
-//get & set
 int Bureaucrat::getGrade(void) const{return (this->a_grade);}
 std::string Bureaucrat::getName(void) const{return (this->a_name);}

@@ -47,6 +47,7 @@ int main(void)
     cb.feed(b9);
     cb.feed(b10);
     cb.feed(b11);
+	cb.feed(b4);
     cb.feed(b12);
     cb.feed(b13);
     cb.feed(b14);

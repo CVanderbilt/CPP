@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Data.hpp"
+#include <unistd.h>
 
 std::string alfa_num_str = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int alfa_num_size = alfa_num_str.size();
@@ -25,18 +26,32 @@ Data* deserialize(void* raw)
 void* serialize(void)
 {
     char* arr = new char[20];
-    
-    int *int_ptr = reinterpret_cast<int*>(arr + 8);
-    *int_ptr = static_cast<int>(rand());
+	std::string s1;
+	std::string s2;
+	int n;
 
+	n = static_cast<int>(rand());
+    int *int_ptr = reinterpret_cast<int*>(arr + 8);
+    *int_ptr = n;
     for (int i = 0; i < 7; i++)
     {
-        arr[i] = alfa_num_str[rand() % alfa_num_size];
-        arr[18 - i] = alfa_num_str[rand() % alfa_num_size];
+		char c;
+		
+		c = alfa_num_str[rand() % alfa_num_size];
+        arr[i] = c;
+		s1 += c;
+		c = alfa_num_str[rand() % alfa_num_size];
+        arr[18 - i] = c;
+		s2 += c;
     }
 
     arr[7] = 0;
     arr[19] = 0;
 
+	std::cout << "Serialized:" << std::endl;
+	std::cout << "str1: " << s1 << std::endl;
+	std::cout << "int: " << n << std::endl;
+	std::cout << "str2: " << s2 << std::endl;
+	
     return (reinterpret_cast<void*>(arr));
 }

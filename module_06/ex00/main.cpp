@@ -17,7 +17,7 @@ int main(int argc, char* argv[])
                 std::cout << "  Char: Not possible" << std::endl;
 
             std::cout << "  Int: " << static_cast<int>(num) << std::endl;
-            std::cout << "  Float: " << static_cast<float>(num) << std::endl;
+            std::cout << "  Float: " << static_cast<float>(num) << 'f' << std::endl;
             std::cout << "  Double: " << num << std::endl << std::endl; 
             
         }

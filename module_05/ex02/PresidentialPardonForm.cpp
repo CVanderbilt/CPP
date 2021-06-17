@@ -39,11 +39,5 @@ void PresidentialPardonForm::execute(const Bureaucrat& executor) const
     {
         throw;
     }
-
-    std::cout << this->getTarget() << "has been pardoned by Zafod Beeblebrox." << std::endl;
-}
-
-Form* PresidentialPardonForm::clone(const std::string& target)
-{
-    return (new PresidentialPardonForm(target));
+    std::cout << this->getTarget() << " has been pardoned by Zafod Beeblebrox." << std::endl;
 }

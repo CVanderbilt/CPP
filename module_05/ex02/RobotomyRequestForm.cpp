@@ -45,8 +45,3 @@ void RobotomyRequestForm ::execute(const Bureaucrat& executor) const
     else
         std::cout << this->getTarget() << " couldnt be robotomized this time" << std::endl;
 }
-
-Form* RobotomyRequestForm::clone(const std::string& target)
-{
-    return (new RobotomyRequestForm(target));
-}

@@ -58,8 +58,3 @@ void ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 
     outfile.close();
 }
-
-Form* ShrubberyCreationForm::clone(const std::string& target)
-{
-    return (new ShrubberyCreationForm(target));
-}

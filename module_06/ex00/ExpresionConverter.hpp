@@ -5,6 +5,10 @@
 class ExpresionConverter
 {
     private:
+		ExpresionConverter(void);
+		ExpresionConverter(ExpresionConverter &);
+		ExpresionConverter& operator=(const ExpresionConverter&);
+
         static const std::string a_list[8];
         static double asciiConversion(const std::string&);
         static double numConversion(const std::string&);

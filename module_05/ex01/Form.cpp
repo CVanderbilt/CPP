@@ -3,10 +3,14 @@
 
 Form::Form(std::string name, int sign_req, int exec_req):
     a_name(name), a_sign_grade(sign_req), a_exec_grade(exec_req), a_status(false){
-    if (this->a_exec_grade < 1 || this->a_sign_grade < 1)
+    if (this->a_exec_grade < 1 || this->a_sign_grade < 1){
+		this->a_sign_grade = 150;
         throw (Bureaucrat::GradeTooHighException());
-    if (this->a_exec_grade > 150 || this->a_sign_grade > 150)
+	}
+    if (this->a_exec_grade > 150 || this->a_sign_grade > 150){
+		this->a_sign_grade = 150;
         throw (Bureaucrat::GradeTooLowException());
+	}
 }
 
 Form::Form(const Form& f){*this = f;}
@@ -17,12 +21,6 @@ Form& Form::operator=(const Form& f){
     this->a_status = f.getStatus();
     this->a_exec_grade = f.getExecGrade();
     this->a_sign_grade = f.getSignGrade();
-
-    if (this->a_exec_grade < 1 || this->a_sign_grade < 1)
-        throw (Bureaucrat::GradeTooHighException());
-    if (this->a_exec_grade > 150 || this->a_sign_grade > 150)
-        throw (Bureaucrat::GradeTooLowException());
-
     return (*this);
 }
 

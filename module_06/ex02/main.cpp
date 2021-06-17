@@ -49,6 +49,7 @@ int main(void)
     srand(time(NULL));
     Base* arr[10];
 
+	std::string s;
     for (int i = 0; i < 10; i++)
     {
         int b = rand() % 3;
@@ -56,12 +57,15 @@ int main(void)
         {
         case 0:
             arr[i] = new (A);
+			s += "a, ";
             break ;
         case 1:
             arr[i] = new (B);
+			s += "b, ";
             break ;
         default:
             arr[i] = new (C);
+			s+= "c, ";
             break ;
         }
     }
@@ -71,6 +75,8 @@ int main(void)
         identify_from_reference(*arr[i]);
         std::cout << std::endl;
     }
+
+	std::cout << s << std::endl;
     
     return (0);
 }

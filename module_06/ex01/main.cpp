@@ -11,11 +11,11 @@ int main(void)
 		void *raw = serialize();
 		Data *dt = deserialize(raw);
         (void)dt;
-
+		std::cout << std::endl;
 		std::cout << "\tstr1: " << dt->s1 << '\n';
 		std::cout << "\tn:    " << dt->n << '\n';
 		std::cout << "\tstr2: " << dt->s2 << std::endl;
-
+		std::cout << std::endl;
 		delete static_cast<char*>(raw);
 		delete dt;
 	}

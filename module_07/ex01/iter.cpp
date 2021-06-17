@@ -11,6 +11,11 @@ void ft_foo(const std::string& s)
     std::cout << s << std::endl;
 }
 
+void ft_fooi(int &n)
+{
+	n += 3;
+}
+
 int main(void)
 {
     std::string arr[5] = {
@@ -21,7 +26,12 @@ int main(void)
         "str5"
     };
 
-    ::iter (arr, 5, &ft_foo);
+	int	iarr[5]  ={1, 2, 3, 4, 5};
 
+    ::iter (arr, 5, &ft_foo);
+	//::iter (iarr, 5, &ft_fooi);
+	for (int i = 0; i < 5; i++)
+		std::cout << iarr[i];
+	std::cout << std::endl;
     return (0);
 }

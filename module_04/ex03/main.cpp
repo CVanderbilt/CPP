@@ -19,7 +19,7 @@
 void show(Character *c){
     std::cout << "  SHOWING..." << std::endl;
     for (int i = 0; i < c->getAmount(); i++)
-        std::cout << "      " << c->getMateria(i)->getType() << std::endl;;
+        std::cout << "	" << c->getMateria(i)->getType() << "(" << c->getMateria(i)->getXP() << ")" << std::endl;;
 }
 
 int main(void)
@@ -27,53 +27,40 @@ int main(void)
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
-
 	ICharacter* me = new Character("me");
-
-	AMateria* tmp = nullptr;
-	AMateria* first = nullptr;
-	tmp = src->createMateria("fire");
-	me->equip(tmp);
+	AMateria* tmp;
 	tmp = src->createMateria("ice");
-	first = tmp;
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
-	me->equip(tmp);
-	tmp = src->createMateria("cure");
-	me->equip(tmp);
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	tmp = src->createMateria("ice");
-	me->equip(tmp);
-	delete tmp;
-	me->equip(nullptr);
-
-    show((Character*)me);
-
 	ICharacter* bob = new Character("bob");
-	me->use(-1, *bob);
-	std::cout << "materia exp: " << first->getXP() << std::endl;
 	me->use(0, *bob);
-	std::cout << "materia exp: " << first->getXP() << std::endl;
 	me->use(1, *bob);
 	me->use(2, *bob);
-	me->use(3, *bob);
-	me->use(4, *bob);
+	me->use(5, *bob);
 
-    std::cout << "Empieza unequip" << std::endl;
-	me->unequip(0);
-	std::cout << "materia exp: " << first->getXP() << std::endl;
-	me->use(0, *bob);
-	std::cout << "materia exp: " << first->getXP() << std::endl;
-	me->use(3, *bob);
-	me->unequip(-1);
-    show((Character*)me);
-	me->equip(first);
-    show((Character*)me);
+	show((Character *)me);
+	AMateria* tmp2;
+	tmp2 = src->createMateria("kk");
+	me->equip(tmp2);
+	tmp2 = src->createMateria("cure");
+	me->equip(tmp2);
+	tmp2 = src->createMateria("cure");
+	me->equip(tmp);
+	me->equip(tmp2);
+	tmp2 = src->createMateria("ice");
+	me->equip(tmp2);
+	delete tmp2;
 
-    std::cout << "Fin" << std::endl;
+	show((Character *)me);
+	std::cout << "tmp: " << tmp->getType() << ", " << tmp->getXP() << std::endl;
 
+	me->unequip(1);
+
+	show((Character *)me);
+	std::cout << "tmp: " << tmp->getType() << ", " << tmp->getXP() << std::endl;
+
+	delete tmp;
 	delete bob;
 	delete me;
 	delete src;

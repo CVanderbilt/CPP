@@ -28,17 +28,9 @@ void MateriaSource::learnMateria(AMateria* m)
 
 AMateria* MateriaSource::createMateria(std::string const& type)
 {
-    //std::cout << "Creating(" << type << ")..." << std::endl;
-    for (int i = 0; i < this->amount; i++){
-        //std::cout << "  comparing with: " << this->arr[i]->getType() << std::endl;
-        if (this->arr[i]->getType() == type){
-            //std::cout << "      Found: ";
-            AMateria* ret = this->arr[i]->clone();
-            //std::cout << ret << std::endl;
-            return (ret);
-            //return (this->arr[i]->clone());
-        }
-    }
+    for (int i = 0; i < this->amount; i++)
+        if (this->arr[i]->getType() == type)
+            return (this->arr[i]->clone());
     return (0);
 }
 
