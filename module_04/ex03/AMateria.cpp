@@ -12,7 +12,7 @@ AMateria& AMateria::operator=(const AMateria& m){
 }
 
 void AMateria::use(ICharacter& target){
-    std::cout << "AMateria: " << this->type << " used" << std::endl;
+	(void)target;
     this->_xp += 10;
 }
 

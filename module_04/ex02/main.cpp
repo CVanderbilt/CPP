@@ -21,9 +21,7 @@ int main()
     PUSH (vlc, jim)
     PUSH (vlc, jim)
     PUSH (vlc, other)
-    //vlc->push(bob);
-    //vlc->push(jim);
-    //vlc->push(jim);
+
     for (int i = 0; i < vlc->getCount(); ++i)
     {
         ISpaceMarine* cur = vlc->getUnit(i);
