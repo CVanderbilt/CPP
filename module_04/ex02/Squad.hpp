@@ -8,6 +8,7 @@ class Squad: public ISquad
     private:
         int size;
         ISpaceMarine **arr;
+		void deleteOldSquad(void);
     public:
         Squad(void);
         Squad(const Squad&);

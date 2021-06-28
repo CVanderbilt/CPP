@@ -3,8 +3,8 @@
 
 
 //constructors & destructor
-TacticalMarine::TacticalMarine(void){std::cout << "Tactical Marine ready for battle" << std::endl;}
-TacticalMarine::TacticalMarine(const TacticalMarine& tm){(void)tm; std::cout << "Tactical Marine ready for battle" << std::endl;}
+TacticalMarine::TacticalMarine(void){std::cout << "Tactical Marine ready for battle " << this << std::endl;}
+TacticalMarine::TacticalMarine(const TacticalMarine& tm){(void)tm; std::cout << "Tactical Marine ready for battle " << this << std::endl;}
 TacticalMarine::~TacticalMarine(void){std::cout << "Aaargh..." << std::endl;}
 
 //operators
@@ -17,6 +17,7 @@ TacticalMarine& TacticalMarine::operator=(const TacticalMarine& tm){
 ISpaceMarine* TacticalMarine::clone(void) const{
     TacticalMarine *tm = new TacticalMarine();
     *tm = *this;
+	std::cout << "marine: " << this << " cloned" << std::endl;
     return (tm);
 }
 
