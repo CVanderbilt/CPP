@@ -2,7 +2,7 @@
 #include "Enemy.hpp"
 
 Enemy::Enemy(void){}
-Enemy::Enemy(int hp, std::string const& type): hit_points(hp), type(type){}
+Enemy::Enemy(int hp, std::string const& type): type(type), hit_points(hp){}
 Enemy::Enemy(const Enemy& e){*this = e;}
 Enemy::~Enemy(void){}
 

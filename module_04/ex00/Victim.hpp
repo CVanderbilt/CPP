@@ -11,7 +11,7 @@ class Victim
     public:
         Victim(std::string name);
         Victim(const Victim &v);			//copy constructor
-        ~Victim(void);						//destructor
+        virtual ~Victim(void);						//destructor
 
         Victim& operator=(const Victim &);	//= operator
 

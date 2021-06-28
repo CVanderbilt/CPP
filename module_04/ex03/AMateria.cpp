@@ -1,7 +1,7 @@
 #include "AMateria.hpp"
 
 AMateria::AMateria(void){}
-AMateria::AMateria(std::string const & type): _xp(0), type(type){}
+AMateria::AMateria(std::string const & type): type(type), _xp(0){}
 AMateria::AMateria(const AMateria& m){*this = m;}
 AMateria::~AMateria(void){}
 
