@@ -1,6 +1,8 @@
 #ifndef ISPACEMARINE_HPP
 # define ISPACEMARINE_HPP
 
+/*check_ignore*/
+
 class ISpaceMarine
 {
     public:

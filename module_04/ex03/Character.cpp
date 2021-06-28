@@ -2,6 +2,7 @@
 #include "Character.hpp"
 #include "AMateria.hpp"
 
+Character::Character(void){}
 Character::Character(std::string name): name(name), amount(0){}
 Character::Character(const Character& c){*this = c;}
 Character::~Character(void){

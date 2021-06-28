@@ -10,7 +10,10 @@ OfficeBlock::OfficeBlock(Bureaucrat* s, Bureaucrat* e, Intern* i):
     a_signer(s), a_executor(e), a_intern(i){}
 OfficeBlock::OfficeBlock(Bureaucrat& s, Bureaucrat& e, Intern& i):
     a_signer(&s), a_executor(&e), a_intern(&i){}
+OfficeBlock::OfficeBlock(const OfficeBlock& o){(void)o;}
 OfficeBlock::~OfficeBlock(void){}
+
+OfficeBlock& OfficeBlock::operator=(const OfficeBlock& f){(void)f; return (*this);}
 
 const char* OfficeBlock::IncompleteOfficeException::what(void) const throw()
 {

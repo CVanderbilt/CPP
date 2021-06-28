@@ -2,6 +2,8 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
+/*check_ignore*/
+
 int main(void)
 {
     Bureaucrat buro("Bob", 15);

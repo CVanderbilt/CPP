@@ -8,6 +8,8 @@
 #include "OfficeBlock.hpp"
 #include "CentralBureaucracy.hpp"
 
+/*check_ignore*/
+
 int main(void)
 {
     srand (time(NULL));

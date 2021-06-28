@@ -4,13 +4,14 @@
 #include "PresidentialPardonForm.hpp"
 
 //Creators & destructor 
-PresidentialPardonForm ::PresidentialPardonForm (const std::string& target):
+PresidentialPardonForm::PresidentialPardonForm(void):Form("", 1, 1){}
+PresidentialPardonForm::PresidentialPardonForm (const std::string& target):
     Form("PresidentialPardonForm ", 25, 5){this->setTarget(target);}
-PresidentialPardonForm ::PresidentialPardonForm (const PresidentialPardonForm & s):
+PresidentialPardonForm::PresidentialPardonForm (const PresidentialPardonForm & s):
     Form("PresidentialPardonForm ", 25, 5){
         *this = s;
 }
-PresidentialPardonForm ::~PresidentialPardonForm (void){}
+PresidentialPardonForm::~PresidentialPardonForm (void){}
 
 //Operators
 PresidentialPardonForm & PresidentialPardonForm ::operator=(const PresidentialPardonForm & s){

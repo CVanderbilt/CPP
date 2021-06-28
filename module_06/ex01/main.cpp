@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Data.hpp"
 
+/*ignore_check*/
+
 int main(void)
 {
 	srand(time(NULL));

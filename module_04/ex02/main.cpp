@@ -7,6 +7,8 @@
 
 #define PUSH(sq, name) std::cout << "PUSHING: " << sq->push(name) << std::endl;
 
+/*check_ignore*/
+
 int main()
 {
     ISpaceMarine* bob = new TacticalMarine;

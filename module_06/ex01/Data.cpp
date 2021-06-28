@@ -2,6 +2,8 @@
 #include "Data.hpp"
 #include <unistd.h>
 
+/*check_ignore*/
+
 std::string alfa_num_str = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int alfa_num_size = alfa_num_str.size();
 

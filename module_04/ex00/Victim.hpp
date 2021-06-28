@@ -5,15 +5,15 @@
 class Victim
 {
     private:
-        Victim();
+        Victim();							//default constructor
     protected:
         std::string name;
     public:
         Victim(std::string name);
-        Victim(const Victim &v);
-        ~Victim(void);
+        Victim(const Victim &v);			//copy constructor
+        ~Victim(void);						//destructor
 
-        Victim& operator=(const Victim &);
+        Victim& operator=(const Victim &);	//= operator
 
         virtual void getPolymorphed(void) const;
 

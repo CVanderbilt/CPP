@@ -3,13 +3,14 @@
 #include "RobotomyRequestForm.hpp"
 
 //Creators & destructor
-RobotomyRequestForm ::RobotomyRequestForm (const std::string& target):
+RobotomyRequestForm::RobotomyRequestForm(void):Form("", 1, 1){}
+RobotomyRequestForm::RobotomyRequestForm (const std::string& target):
     Form("RobotomyRequestForm ", 72, 45){this->setTarget(target);}
-RobotomyRequestForm ::RobotomyRequestForm (const RobotomyRequestForm & s):
+RobotomyRequestForm::RobotomyRequestForm (const RobotomyRequestForm & s):
     Form("RobotomyRequestForm ", 72, 45){
         *this = s;
 }
-RobotomyRequestForm ::~RobotomyRequestForm (void){}
+RobotomyRequestForm::~RobotomyRequestForm (void){}
 
 //Operators
 RobotomyRequestForm & RobotomyRequestForm ::operator=(const RobotomyRequestForm & s){

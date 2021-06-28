@@ -13,6 +13,7 @@ Form::Form(std::string name, int sign_req, int exec_req):
 	}
 }
 
+Form::Form(void){}
 Form::Form(const Form& f){*this = f;}
 Form::~Form(void){}
 

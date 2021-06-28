@@ -3,8 +3,9 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
-
 #include "Bureaucrat.hpp"
+
+/*check_ignore*/
 
 int main(void)
 {

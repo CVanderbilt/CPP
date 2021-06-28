@@ -6,13 +6,13 @@
 class Peon: public Victim
 {
     private:
-        Peon(void);
+        Peon(void);						//default constructor
     public:
         Peon(std::string);
-        Peon(const Peon &);
-        virtual ~Peon(void);
+        Peon(const Peon &);				//copy constructor
+        virtual ~Peon(void);			//destructor
 
-        Peon& operator=(const Peon&);
+        Peon& operator=(const Peon&);	//=operator
         
         void getPolymorphed(void) const;
 };

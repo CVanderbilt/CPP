@@ -8,6 +8,8 @@
 #include "Intern.hpp"
 #include "OfficeBlock.hpp"
 
+/*check_ignore*/
+
 int main(void)
 {
 

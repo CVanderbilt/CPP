@@ -1,6 +1,8 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
+/*check_ignore*/
+
 int main(void)
 {
     Bureaucrat buro1("Bob", 2);

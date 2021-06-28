@@ -7,11 +7,11 @@ class RadScorpion: public Enemy
 {
     private:
     public:
-        RadScorpion(void);
-        RadScorpion(const RadScorpion&);
-        virtual ~RadScorpion(void);
+        RadScorpion(void);							//default constructor
+        RadScorpion(const RadScorpion&);			//copy constructor
+        virtual ~RadScorpion(void);					//destructor
 
-        RadScorpion& operator=(const RadScorpion&);
+        RadScorpion& operator=(const RadScorpion&);	//=operator
 };
 
 #endif

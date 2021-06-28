@@ -2,6 +2,8 @@
 # define IASTEROID
 # include <iostream>
 
+/*check_ignore*/
+
 class IAsteroid;
 
 class DeepCoreMiner;

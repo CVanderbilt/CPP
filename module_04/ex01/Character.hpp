@@ -7,15 +7,16 @@
 class Character
 {
     private:
+		Character(void);						//default constructor
         std::string name;
         int action_points;
         AWeapon *w_ptr;
     public:
         Character(std::string const & name);
-        Character(const Character&);
-        ~Character();
+        Character(const Character&);			//copy constructor
+        ~Character();							//destructor
 
-        Character& operator=(const Character&);
+        Character& operator=(const Character&);	//=operator
 
         void recoverAP();
         void equip(AWeapon*);

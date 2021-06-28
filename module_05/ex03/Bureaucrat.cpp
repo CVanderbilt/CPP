@@ -2,6 +2,7 @@
 #include "Bureaucrat.hpp"
 
 //Creators & destructos
+Bureaucrat::Bureaucrat(void){}
 Bureaucrat::Bureaucrat(const std::string name, int grade): a_name(name), a_grade(grade){
         if (grade < 1)
             throw (Bureaucrat::GradeTooHighException());

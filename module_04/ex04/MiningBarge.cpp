@@ -1,4 +1,4 @@
-#include "MininBarge.hpp"
+#include "MiningBarge.hpp"
 #include "IMiningLaser.hpp"
 
 MiningBarge::MiningBarge(void): amount(0){}

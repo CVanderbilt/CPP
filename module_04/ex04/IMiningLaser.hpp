@@ -3,6 +3,8 @@
 
 # include "IAsteroid.hpp"
 
+/*check_ignore*/
+
 class IMiningLaser
 {
     public:

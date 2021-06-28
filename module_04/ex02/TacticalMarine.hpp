@@ -7,11 +7,11 @@ class TacticalMarine: public ISpaceMarine
     private:
 
     public:
-        TacticalMarine(void);
-        TacticalMarine(const TacticalMarine&);
-        virtual ~TacticalMarine(void);
+        TacticalMarine(void);								//default constructor
+        TacticalMarine(const TacticalMarine&);				//copy constructor
+        virtual ~TacticalMarine(void);						//destructor
 
-        TacticalMarine& operator=(const TacticalMarine&);
+        TacticalMarine& operator=(const TacticalMarine&);	//=operator
 
         ISpaceMarine *clone(void) const;
         void battleCry(void) const;

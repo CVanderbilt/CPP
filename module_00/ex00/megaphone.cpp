@@ -2,6 +2,8 @@
 #include <string>
 #include <locale>
 
+//check_ignore
+
 int main(int argc, char *argv[])
 {
     int i;

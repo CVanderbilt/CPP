@@ -2,6 +2,8 @@
 # define ICHARACTER_HPP
 # include <iostream>
 
+/*check_ignore*/
+
 class ICharacter;
 
 # include "AMateria.hpp"

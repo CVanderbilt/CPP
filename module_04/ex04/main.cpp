@@ -1,4 +1,4 @@
-#include "MininBarge.hpp"
+#include "MiningBarge.hpp"
 #include "IMiningLaser.hpp"
 #include "IAsteroid.hpp"
 #include "KoalaSteroid.hpp"
@@ -6,6 +6,8 @@
 #include "DeepCoreMiner.hpp"
 #include "StripMiner.hpp"
 #include <iostream>
+
+/*check_ignore*/
 
 int main(void)
 {

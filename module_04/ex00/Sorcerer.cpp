@@ -2,6 +2,7 @@
 #include <iostream>
 
 //constructors & destructor
+Sorcerer::Sorcerer(void){};
 Sorcerer::Sorcerer(std::string name, std::string title): name(name), title (title){std::cout << name << ", " << title << ", is born!" << std::endl;}
 Sorcerer::~Sorcerer(void){std::cout << name << ", " << title << ", is dead. Consequences will never be the same!" << std::endl; }
 Sorcerer::Sorcerer(const Sorcerer& s){

@@ -2,6 +2,8 @@
 # define ISQUAD_HPP
 # include "ISpaceMarine.hpp"
 
+/*check_ignore*/
+
 class ISquad
 {
     public:

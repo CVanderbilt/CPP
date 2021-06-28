@@ -1,6 +1,8 @@
 #include <iostream>
 #include "ExpresionConverter.hpp"
 
+/*check_ignore*/
+
 int main(int argc, char* argv[])
 {
     double num;

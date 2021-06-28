@@ -7,6 +7,8 @@
 #include "PowerFist.hpp"
 #include "Character.hpp"
 
+/*check_ignore*/
+
 int main()
 {
     Character* me = new Character("me");

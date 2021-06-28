@@ -11,6 +11,8 @@ Bureaucrat::Bureaucrat(const std::string name, int grade): a_name(name), a_grade
 		    throw (Bureaucrat::GradeTooLowException());
 		}
 }
+
+Bureaucrat::Bureaucrat(void){}
 Bureaucrat::Bureaucrat(const Bureaucrat& b){*this = b;}
 Bureaucrat::~Bureaucrat(void){}
 

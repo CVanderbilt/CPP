@@ -1,6 +1,7 @@
 #include <iostream>
 #include "AWeapon.hpp"
 
+AWeapon::AWeapon(void){}
 AWeapon::AWeapon(std::string const & name, int apcost, int damage): name(name), cost(apcost), damage(damage){}
 AWeapon::AWeapon(const AWeapon& w){*this = w;}
 AWeapon::~AWeapon(void){}

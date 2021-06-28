@@ -5,16 +5,16 @@
 class Enemy
 {
     private:
-        Enemy(void);
+        Enemy(void);								//default constructor
     protected:
         std::string type;
         int hit_points;
     public:
         Enemy(int hp, std::string const & type);
-        Enemy(const Enemy&);
-        virtual ~Enemy();
+        Enemy(const Enemy&);						//copy constructor
+        virtual ~Enemy();							//destructor
 
-        Enemy& operator=(const Enemy&);
+        Enemy& operator=(const Enemy&);				//=operator
 
         virtual void takeDamage(int);
 

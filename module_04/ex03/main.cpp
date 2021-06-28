@@ -16,6 +16,8 @@
 #include "MateriaSource.hpp"
 #include "Character.hpp"
 
+/*check_ignore*/
+
 void show(Character *c){
     std::cout << "  SHOWING..." << std::endl;
     for (int i = 0; i < c->getAmount(); i++)

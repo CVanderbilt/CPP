@@ -1,21 +1,5 @@
 #include <iostream>
-
-template<typename T>
-void swap(T& a, T& b){
-    T aux = a;
-    a = b;
-    b = aux;
-}
-
-template<typename T>
-T& min(T& a, T& b){
-    return b <= a ? b : a;
-}
-
-template<typename T>
-T& max(T& a, T& b){
-    return b >= a ? b : a;
-}
+#include "Templates.hpp"
 
 int main( void ) 
 {
@@ -33,5 +17,14 @@ int main( void )
 	std::cout << "c = " << c << ", d = " << d << std::endl;
 	std::cout << "min( c, d ) = " << ::min( c, d ) << std::endl;
 	std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
+
+	char c1 = 'a';
+	char c2 = 'g';
+	std::cout << "c1: " << c1 << ", c2: " << c2 << std::endl;
+	::swap(c1, c2);
+	std::cout << "c1: " << c1 << ", c2: " << c2 << std::endl;
+	std::cout << "min( c1, c2 ) = " << ::min( c1, c2 ) << std::endl;
+	std::cout << "max( c1, c2 ) = " << ::max( c1, c2 ) << std::endl;
+
 	return 0;
 }

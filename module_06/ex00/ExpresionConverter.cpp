@@ -12,6 +12,12 @@ const std::string ExpresionConverter::a_list[8] = {
     "nanf"
 };
 
+ExpresionConverter::ExpresionConverter(void){}
+ExpresionConverter::ExpresionConverter(const ExpresionConverter& e){(void)e;}
+ExpresionConverter::~ExpresionConverter(void){}
+
+ExpresionConverter& ExpresionConverter::operator=(const ExpresionConverter& e){(void)e; return (*this);}
+
 int ExpresionConverter::checkType(std::string& s)
 {
     int type_id; //0 -> char, 1 -> int, 2 -> foat 3 -> double
@@ -53,7 +59,6 @@ double ExpresionConverter::numConversion(const std::string& consts)
 
     type_id = ExpresionConverter::checkType(s);
 
-    //std::cout << "--------" << std::endl;
     if (isalpha(*(s.end() - 1)))
     {
         //std::cout << "          End in alfa: " << *(s.end() - 1) << std::endl;
@@ -88,6 +93,7 @@ double ExpresionConverter::asciiConversion(const std::string& s)
 {
     if (s.length() != 1 )
         throw (std::exception());
+	std::cout << "Char" << std::endl;
     return (static_cast<double>(s[0]));
 }
 
@@ -102,8 +108,9 @@ double ExpresionConverter::convert(const std::string& s)
             return (i / 4 == 0 ? atof (s.c_str()) : static_cast<float>(atof (s.c_str())));
         }
 
-    if (!isdigit(s[0]) && s[0] != '-' && s[0] != '+')
-            num = ExpresionConverter::asciiConversion(s);
+    //if (!isdigit(s[0]) && s[0] != '-' && s[0] != '+')
+    if (s.length() == 1)
+	        num = ExpresionConverter::asciiConversion(s);
     else
             num = ExpresionConverter::numConversion(s);
     return num;

@@ -6,11 +6,11 @@ class PlasmaRifle : public AWeapon
 {
     private:
     public:
-        PlasmaRifle(void);
-        PlasmaRifle(const PlasmaRifle&);
-        virtual ~PlasmaRifle(void);
+        PlasmaRifle(void);								//default constructor
+        PlasmaRifle(const PlasmaRifle&);				//copy constructor
+        virtual ~PlasmaRifle(void);						//destructor
 
-        PlasmaRifle & operator=(const PlasmaRifle &);
+        PlasmaRifle & operator=(const PlasmaRifle &);	//=operator
 
         void attack(void) const;
 };

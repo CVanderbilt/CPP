@@ -2,6 +2,8 @@
 # define IMATERIASOURCE_HPP
 # include "AMateria.hpp"
 
+/*check_ignore*/
+
 class IMateriaSource
 {
     public:

@@ -9,6 +9,7 @@
 #include "CentralBureaucracy.hpp"
 
 //Constructors & destructor
+CentralBureaucracy::CentralBureaucracy(const CentralBureaucracy&c){(void)c;}
 CentralBureaucracy::CentralBureaucracy(void): a_queue(0), a_queue_size(0){
     for (int i = 0; i < 20; i++)
         this->a_blocks_list[i].setIntern(&this->a_interns_list[i]);
@@ -18,6 +19,8 @@ CentralBureaucracy::CentralBureaucracy(void): a_queue(0), a_queue_size(0){
     this->a_burolist[3] = "WrongFormatForm";
 }
 CentralBureaucracy::~CentralBureaucracy(void){}
+
+CentralBureaucracy& CentralBureaucracy::operator=(const CentralBureaucracy& f){(void)f; return (*this);}
 
 //Others
 void CentralBureaucracy::feed(Bureaucrat& b)

@@ -2,6 +2,8 @@
 #include "Victim.hpp"
 #include "Peon.hpp"
 
+/*check_ignore*/
+
 int main()
 {
     Sorcerer    robert("Robert", "the Magnificent");

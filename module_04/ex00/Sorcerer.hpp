@@ -6,15 +6,15 @@
 class Sorcerer
 {
     private:
-        Sorcerer(void);
+        Sorcerer(void);							//default constructor
         std::string name;
         std::string title;
     public:
         Sorcerer(std::string name, std::string title);
-        Sorcerer(const Sorcerer&);
-        ~Sorcerer(void);
+        Sorcerer(const Sorcerer&);				//copy constructor
+        ~Sorcerer(void);						//destructor
 
-        Sorcerer& operator=(const Sorcerer&);
+        Sorcerer& operator=(const Sorcerer&);	//= operator
 
         void polymorph(Victim const &) const;
 

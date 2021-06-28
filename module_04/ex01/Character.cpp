@@ -4,6 +4,7 @@
 #include "Enemy.hpp"
 
 //constructors & destructor
+Character::Character(void){}
 Character::Character(std::string const &name): name(name), action_points(40), w_ptr(0){}
 Character::Character(const Character& c){
     *this = c;

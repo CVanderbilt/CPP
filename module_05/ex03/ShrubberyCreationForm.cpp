@@ -4,6 +4,7 @@
 #include "ShrubberyCreationForm.hpp"
 
 //Creators & destructor
+ShrubberyCreationForm::ShrubberyCreationForm(void):Form("", 1, 1){}
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target):
     Form("ShrubberyCreationForm", 145, 137){this->setTarget(target);}
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& s):

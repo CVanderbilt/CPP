@@ -6,7 +6,7 @@ class ExpresionConverter
 {
     private:
 		ExpresionConverter(void);
-		ExpresionConverter(ExpresionConverter &);
+		ExpresionConverter(const ExpresionConverter &);
 		ExpresionConverter& operator=(const ExpresionConverter&);
 
         static const std::string a_list[8];
