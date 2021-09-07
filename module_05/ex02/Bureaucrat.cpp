@@ -10,7 +10,7 @@ Bureaucrat::Bureaucrat(const std::string name, int grade): a_name(name), a_grade
 			this->a_grade = 150;
 		    throw (Bureaucrat::GradeTooLowException());
 		}
-}s
+}
 
 Bureaucrat::Bureaucrat(void){}
 Bureaucrat::Bureaucrat(const Bureaucrat& b){*this = b;}

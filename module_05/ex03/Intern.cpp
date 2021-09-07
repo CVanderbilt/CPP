@@ -32,8 +32,6 @@ const char* Intern::UnrecognisedFormException::what(void) const throw()
 
 Form* Intern::makeForm(const std::string& form, const std::string& target)
 {
-    int option;
-
     for (int i = 0; i < 3; i++){
         if (form == this->a_name_list[i])
             return (this->a_fcnPtr_list[i](target));

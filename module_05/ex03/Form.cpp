@@ -3,7 +3,7 @@
 
 //Creators & destructos
 Form::Form(std::string name, int sign_req, int exec_req):
-    a_name(name), a_sign_grade(sign_req), a_exec_grade(exec_req), a_status(false){
+    a_status(false), a_sign_grade(sign_req), a_exec_grade(exec_req), a_name(name){
     if (this->a_exec_grade < 1 || this->a_sign_grade < 1){
 		this->a_sign_grade = 150;
         throw (Bureaucrat::GradeTooHighException());
