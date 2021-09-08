@@ -19,7 +19,7 @@ HEADER	= Bureaucrat.hpp Form.hpp PresidentialPardonForm.hpp \
 
 all:	$(NAME)
 
-.PHONY:	clean fclean re bonus bench bclean
+.PHONY:	clean fclean re all
 
 $(NAME): $(OBJS)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
