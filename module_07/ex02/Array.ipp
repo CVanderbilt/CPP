@@ -17,6 +17,7 @@ Array<T>& Array<T>::operator=(const Array<T>& a){
     if (this->m_arr)
         delete [] this->m_arr;
     this->m_size = a.size();
+	this->m_arr = new T [this->m_size];
 
     for (int i = 0; i < this->m_size; i++)
         this->m_arr[i] = a[i];
