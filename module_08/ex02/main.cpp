@@ -8,7 +8,6 @@
 #include <iostream>
 #include <stack>
 #include <list>
-#include <set>
 #include "mutantstack.hpp"
 
 int main(void)
