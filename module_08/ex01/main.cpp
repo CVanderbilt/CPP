@@ -1,6 +1,7 @@
 #include "span.hpp"
 #include <iostream>
 #include <vector>
+#include <set>
 
 int f(void)
 {
@@ -44,10 +45,8 @@ int main(void)
     try
     {
         std::generate(v.begin(), v.end(), f);
-        std::cout << "Vector filled" << std::endl;
-        std::vector<int>::iterator b = v.begin();
-        std::vector<int>::iterator e = v.end();
-        big_span.addNumber(e, b);
+		std::multiset<int>mset(v.begin(), v.end());
+        big_span.addNumber(v.begin(), v.end());
     }
     catch(const std::exception& e)
     {
@@ -72,7 +71,17 @@ int main(void)
         std::cout << "Vector filled" << std::endl;
         std::vector<int>::iterator b = v.begin();
         std::vector<int>::iterator e = v.end();
-        big_span.addNumber(e, b);
+        big_span.addNumber(b, e);
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+    }
+
+	 try
+    {
+        std::cout << "Longest: " << big_span.longestSpan() << std::endl;
+        std::cout << "Shortest: " << big_span.shortestSpan() << std::endl;
     }
     catch(const std::exception& e)
     {

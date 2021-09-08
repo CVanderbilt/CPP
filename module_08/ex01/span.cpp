@@ -31,6 +31,7 @@ void Span::addNumber(int n)
 {
     if (!(this->m_max_size > this->m_set.size()))
         throw Span::SpanFullException();
+	std::cout << "added: " << n << std::endl;
     this->m_set.insert(n);
 }
 
@@ -50,3 +51,4 @@ int Span::longestSpan(void) const
 
 size_t Span::getMaxSize(void) const{return (this->m_max_size);}
 const std::multiset<int> Span::getSet(void) const{return (this->m_set);}
+int	Span::getOcupiedSize(void) const{return (this->m_set.size());}
