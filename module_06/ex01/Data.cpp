@@ -7,7 +7,7 @@
 std::string alfa_num_str = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 int alfa_num_size = alfa_num_str.size();
 
-Data* deserialize(void* raw)
+Data* deserialize(uintptr_t raw)
 {
     Data* data = new Data;
     char* chrraw = reinterpret_cast<char*>(raw);
@@ -25,7 +25,7 @@ Data* deserialize(void* raw)
     return (data);
 }
 
-void* serialize(void)
+uintptr_t serialize(void)
 {
     char* arr = new char[20];
 	std::string s1;
@@ -55,5 +55,5 @@ void* serialize(void)
 	std::cout << "int: " << n << std::endl;
 	std::cout << "str2: " << s2 << std::endl;
 	
-    return (reinterpret_cast<void*>(arr));
+    return (reinterpret_cast<uintptr_t>(arr));
 }

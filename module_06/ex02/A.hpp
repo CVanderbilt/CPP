@@ -4,8 +4,12 @@
 
 class A: public Base
 {
+	private:
+		A(const A&);
     public:
         A(void);
+		~A(void);
+		A& operator=(const A&);
 };
 
 

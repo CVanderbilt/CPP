@@ -9,7 +9,7 @@
         std::string s2;
     };
 
-    void* serialize(void);
-    Data* deserialize(void* raw);
+    uintptr_t serialize(void);
+    Data* deserialize(uintptr_t raw);
 
 #endif

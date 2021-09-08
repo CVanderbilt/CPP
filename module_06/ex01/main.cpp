@@ -10,7 +10,7 @@ int main(void)
 	for (int i = 0; i < 5; i++)
 	{
 		std::cout << "test " << i << ": " << '\n';
-		void *raw = serialize();
+		uintptr_t raw = serialize();
 		Data *dt = deserialize(raw);
         (void)dt;
 		std::cout << std::endl;
@@ -18,7 +18,7 @@ int main(void)
 		std::cout << "\tn:    " << dt->n << '\n';
 		std::cout << "\tstr2: " << dt->s2 << std::endl;
 		std::cout << std::endl;
-		delete static_cast<char*>(raw);
+		delete (char*)(raw);
 		delete dt;
 	}
 

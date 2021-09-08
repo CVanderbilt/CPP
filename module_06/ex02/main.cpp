@@ -42,6 +42,8 @@ void identify_from_reference(Base& p)
         return ;
     }
     catch(...){}
+
+	std::cout << "ref is not a recognized type" << std::endl;
 }
 
 int main(void)
