@@ -25,10 +25,10 @@ $(NAME): $(OBJS)
 	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS) $(B_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME) $(BONUS)
+	rm -f $(NAME)
 
 re: fclean all
 
