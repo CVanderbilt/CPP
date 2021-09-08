@@ -1,24 +1,37 @@
-SRCS			= main.cpp ExpresionConverter.cpp
-OBJS			= $(SRCS:.cpp=.o)
+SRCS	= main.cpp
 
-CXX				= clang++
-RM				= rm -f
-CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror -I.
+SRCS	+= ExpresionConverter.cpp
 
-NAME			= convert
+OBJS	= $(SRCS:.cpp=.o)
 
-all:			$(NAME)
+NAME	= convert
 
-$(NAME):		$(OBJS)
-				$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+CC		= clang++
+
+FLAGS	= -Wall -Wextra -Werror
+
+HEADER	= ExpresionConverter.hpp
+
+
+
+
+all:	$(NAME)
+
+.PHONY:			all clean fclean re test
+
+$(NAME): $(OBJS)
+	$(CC) $(FLAGS) -o $(NAME) $(OBJS)
 
 clean:
-				$(RM) $(OBJS)
+	rm -f $(OBJS) $(B_OBJS)
 
-fclean:			clean
-				$(RM) $(NAME)
+fclean: clean
+	rm -f $(NAME) $(BONUS)
 
-re:				fclean $(NAME)
+re: fclean all
+
+%.o: %.c $(HEADER)
+	$(CC) $(FLAGS) -c $<  -o $(<:.c=.o)
 
 test:			$(NAME)
 				./convert 0
@@ -81,5 +94,3 @@ test:			$(NAME)
 				./convert 1.2e-38f
 				./convert -1.17549e38f
 				./convert -1.2e38f
-
-.PHONY:			all clean fclean re test
