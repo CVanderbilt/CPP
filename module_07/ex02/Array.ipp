@@ -13,12 +13,15 @@ Array<T>::~Array(void){}
 
 //Operators
 template <typename T>
-Array<T>& Array<T>::operator=(const Array& a){
-    delete [] this->m_arr;
-    this->m_size = a.size;
+Array<T>& Array<T>::operator=(const Array<T>& a){
+    if (this->m_arr)
+        delete [] this->m_arr;
+    this->m_size = a.size();
 
     for (int i = 0; i < this->m_size; i++)
         this->m_arr[i] = a[i];
+
+    return (*this);
 }
 
 template <typename T>
@@ -32,7 +35,7 @@ T& Array<T>::operator[](int idx) const{
 template <typename T>
 const char* Array<T>::IndexOutOfBoundsException::what() const throw()
 {
-    return ("Index out of bounds\n");
+    return ("Index out of bounds");
 }
 
 template <typename T>

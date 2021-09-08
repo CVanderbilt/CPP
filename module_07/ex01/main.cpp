@@ -1,7 +1,7 @@
 #include <iostream>
 #include "iter.hpp"
 
-void ft_foo(const std::string& s)
+void ft_foo(std::string& s)
 {
     std::cout << s << std::endl;
 }
@@ -24,9 +24,17 @@ int main(void)
 	int	iarr[5]  ={1, 2, 30, 4, 5};
 
     ::iter (arr, 5, &ft_foo);
-	//::iter (iarr, 5, &ft_fooi);
+	std::cout << std::endl;
+
 	for (int i = 0; i < 5; i++)
 		std::cout << iarr[i];
 	std::cout << std::endl;
-    return (0);
+	::iter (iarr, 3, &ft_fooi);
+	for (int i = 0; i < 5; i++)
+		std::cout << iarr[i];
+	std::cout << std::endl;
+
+	::iter (arr, -7, &ft_foo);
+    
+	return (0);
 }

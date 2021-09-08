@@ -2,13 +2,13 @@ SRCS	= main.cpp
 
 OBJS	= $(SRCS:.cpp=.o)
 
-NAME	= array
+NAME	= templates
 
 CC		= clang++
 
 FLAGS	= -Wall -Wextra -Werror
 
-HEADER	= Array.hpp
+HEADER	= Templates.hpp
 
 
 all:	$(NAME)

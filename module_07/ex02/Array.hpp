@@ -24,6 +24,6 @@ class Array
         int size(void) const;
 };
 
-#include "Array.cpp"
+#include "Array.ipp"
 
 #endif

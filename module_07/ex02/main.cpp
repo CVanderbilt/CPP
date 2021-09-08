@@ -34,7 +34,6 @@ int main(void)
         std::cout << str_array[i] << std::endl;
         std::cout << std::endl;
     }
-
     std::cout << "Fin" << std::endl;
     return (0);
 }
