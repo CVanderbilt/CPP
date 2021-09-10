@@ -8,7 +8,7 @@ NAME	= buro1
 
 CC		= clang++
 
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 HEADER	= Bureaucrat.hpp Form.hpp
 

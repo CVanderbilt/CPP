@@ -10,7 +10,7 @@ NAME	= buro3
 
 CC		= clang++
 
-FLAGS	= -Wall -Wextra -Werror
+FLAGS	= -Wall -Wextra -Werror -std=c++98
 
 HEADER	= Bureaucrat.hpp Form.hpp PresidentialPardonForm.hpp \
 			RobotomyRequestForm.hpp ShrubberyCreationForm.hpp \
