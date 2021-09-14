@@ -4,26 +4,20 @@
 //Creators & destructos
 Form::Form(std::string name, int sign_req, int exec_req):
     a_status(false), a_sign_grade(sign_req), a_exec_grade(exec_req), a_name(name){
-    if (this->a_exec_grade < 1 || this->a_sign_grade < 1){
-		this->a_sign_grade = 150;
+    if (this->a_exec_grade < 1 || this->a_sign_grade < 1)
         throw (Bureaucrat::GradeTooHighException());
-	}
-    if (this->a_exec_grade > 150 || this->a_sign_grade > 150){
-		this->a_sign_grade = 150;
+    if (this->a_exec_grade > 150 || this->a_sign_grade > 150)
         throw (Bureaucrat::GradeTooLowException());
-	}
 }
 
-Form::Form(void){}
-Form::Form(const Form& f){*this = f;}
+Form::Form(void): a_sign_grade(1), a_exec_grade(1), a_name("unnamed"){}
+Form::Form(const Form& f): a_sign_grade(f.getSignGrade()), a_exec_grade(f.getExecGrade()),
+	a_name(f.getName()){*this = f;}
 Form::~Form(void){}
 
 //Operators
 Form& Form::operator=(const Form& f){
-    this->a_name = f.getName();
     this->a_status = f.getStatus();
-    this->a_exec_grade = f.getExecGrade();
-    this->a_sign_grade = f.getSignGrade();
     return (*this);
 }
 std::ostream&   operator<<(std::ostream& os, const Form& obj){

@@ -9,12 +9,11 @@ Bureaucrat::Bureaucrat(const std::string name, int grade): a_name(name), a_grade
         if (grade > 150)
             throw (Bureaucrat::GradeTooLowException());
 }
-Bureaucrat::Bureaucrat(const Bureaucrat& b){*this = b;}
+Bureaucrat::Bureaucrat(const Bureaucrat& b): a_name(b.getName()){*this = b;}
 Bureaucrat::~Bureaucrat(void){}
 
 //operators
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& b){
-    this->a_name = b.getName();
     this->a_grade = b.getGrade();
     if (this->a_grade < 1)
         throw (Bureaucrat::GradeTooHighException());

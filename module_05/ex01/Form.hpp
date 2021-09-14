@@ -11,9 +11,9 @@ class Form
     private:
         Form();
         bool a_status;
-        int a_sign_grade;
-        int a_exec_grade;
-        std::string a_name;
+        const int a_sign_grade;
+        const int a_exec_grade;
+        const std::string a_name;
     public:
         Form(std::string, int sign_req, int exec_req);
         Form(const Form& f);
