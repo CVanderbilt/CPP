@@ -4,7 +4,20 @@
 #include "B.hpp"
 #include "C.hpp"
 
-Base * generate(void);
+Base * generate(void)
+{
+	int b = rand() % 3;
+	switch (b)
+	{
+		case 0:
+			return (new A());
+		case 1:
+			return (new B());
+		default:
+			return (new C());
+	}
+}
+
 void identify_from_pointer(Base* p)
 {
 
@@ -54,22 +67,7 @@ int main(void)
 	std::string s;
     for (int i = 0; i < 10; i++)
     {
-        int b = rand() % 3;
-        switch (b)
-        {
-        case 0:
-            arr[i] = new (A);
-			s += "a, ";
-            break ;
-        case 1:
-            arr[i] = new (B);
-			s += "b, ";
-            break ;
-        default:
-            arr[i] = new (C);
-			s+= "c, ";
-            break ;
-        }
+		arr[i] = generate();
     }
 
     for (int i = 0; i < 10; i++){
