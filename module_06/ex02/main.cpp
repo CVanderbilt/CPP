@@ -18,24 +18,24 @@ Base * generate(void)
 	}
 }
 
-void identify_from_pointer(Base* p)
+void identify(Base* p)
 {
 
     if (dynamic_cast<A*>(p))
-        std::cout << p << " is type A" << std::endl;
+        std::cout << 'A' << std::endl;
     else if (dynamic_cast<B*>(p))
-        std::cout << p << " is type B" << std::endl;
+        std::cout << 'B' << std::endl;
     else if (dynamic_cast<C*>(p))
-        std::cout << p << " is type C" << std::endl;
+        std::cout << 'C' << std::endl;
     else
-        std::cout << p << " is not a recognized type" << std::endl;
+        std::cout << "not a recognized type" << std::endl;
 }
-void identify_from_reference(Base& p)
+void identify(Base& p)
 {
     try
     {
         (void)dynamic_cast<A&>(p);
-        std::cout << "ref is type A" << std::endl;
+        std::cout << "A" << std::endl;
         return ;
     }
     catch(...){}
@@ -43,7 +43,7 @@ void identify_from_reference(Base& p)
     try
     {
         (void)dynamic_cast<B&>(p);
-        std::cout << "ref is type B" << std::endl;
+        std::cout << "B" << std::endl;
         return ;
     }
     catch(...){}
@@ -51,12 +51,12 @@ void identify_from_reference(Base& p)
     try
     {
         (void)dynamic_cast<C&>(p);
-        std::cout << "ref is type C" << std::endl;
+        std::cout << "C" << std::endl;
         return ;
     }
     catch(...){}
 
-	std::cout << "ref is not a recognized type" << std::endl;
+	std::cout << "not a recognized type" << std::endl;
 }
 
 int main(void)
@@ -71,9 +71,11 @@ int main(void)
     }
 
     for (int i = 0; i < 10; i++){
-        identify_from_pointer(arr[i]);
-        identify_from_reference(*arr[i]);
-        std::cout << std::endl;
+		std::cout << "   ";
+        identify(arr[i]);
+		std::cout << "   ";
+        identify(*arr[i]);
+        std::cout << "-------" << std::endl;
     }
 
 	std::cout << s << std::endl;
