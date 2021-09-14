@@ -15,45 +15,39 @@ Data* deserialize(uintptr_t raw)
     data->s1 = "";
     data->s2 = "";
 
-    for (int i = 0; i < 8; i++)
-    {
-        data->s1.push_back(chrraw[i]);
-        data->s2.push_back(chrraw[19 - i]);
-    }
-    data->n = *(reinterpret_cast<int*>(chrraw + 8));
+	data->n = *reinterpret_cast<int*>(raw);
+
+	int i = 3;
+	while (chrraw[++i])
+		data->s1 += chrraw[i];
+	while (chrraw[++i])
+		data->s2 += chrraw[i];
 
     return (data);
 }
 
-uintptr_t serialize(void)
+uintptr_t serialize(Data *ptr)
 {
-    char* arr = new char[20];
-	std::string s1;
-	std::string s2;
-	int n;
+	int l1 = ptr->s1.length();
+	int l2 = ptr->s2.length();
+    char* arr = new char[6 + l1 + l2];
+	
+	//int n;
 
-	n = static_cast<int>(rand());
-    int *int_ptr = reinterpret_cast<int*>(arr + 8);
-    *int_ptr = n;
-    for (int i = 0; i < 7; i++)
-    {
-		char c;
-		
-		c = alfa_num_str[rand() % alfa_num_size];
-        arr[i] = c;
-		s1 += c;
-		c = alfa_num_str[rand() % alfa_num_size];
-        arr[18 - i] = c;
-		s2 += c;
-    }
-
-    arr[7] = 0;
-    arr[19] = 0;
+	*reinterpret_cast<int*>(arr) = ptr->n;
+	int i = -1;
+	int j = -1;
+	while (++i < l1)
+		arr[4 + i] = ptr->s1.c_str()[i];
+	arr[4 + i++] = 0;
+	while (++j < l2)
+		arr[4 + i + j] = ptr->s2.c_str()[j];
+	arr[4 + i + j] = 0;
 
 	std::cout << "Serialized:" << std::endl;
-	std::cout << "str1: " << s1 << std::endl;
-	std::cout << "int: " << n << std::endl;
-	std::cout << "str2: " << s2 << std::endl;
+	std::cout << "int: " << ptr->n << std::endl;
+	std::cout << "str1: " << ptr->s1 << std::endl;
+	std::cout << "str2: " << ptr->s2 << std::endl;
 	
     return (reinterpret_cast<uintptr_t>(arr));
 }
