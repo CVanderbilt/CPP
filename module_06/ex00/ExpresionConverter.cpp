@@ -75,17 +75,17 @@ double ExpresionConverter::numConversion(const std::string& consts)
                 break ;
             }
 
-    n = atof (s.c_str());
+	n = std::stod(s);
     switch (type_id)
 	{
 	case 0:
-        std::cout << "Int" << std::endl;
+        //std::cout << "Int" << std::endl;
 		return (static_cast<int>(n));
 	case 1:
-        std::cout << "Float" << std::endl;
+        //std::cout << "Float" << std::endl;
 		return (static_cast<float>(n));
 	}
-    std::cout << "Double" << std::endl;
+    //std::cout << "Double" << std::endl;
     return (n);
 }
 
@@ -93,23 +93,23 @@ double ExpresionConverter::asciiConversion(const std::string& s)
 {
     if (s.length() != 1 )
         throw (std::exception());
-	std::cout << "Char" << std::endl;
+	//std::cout << "Char" << std::endl;
     return (static_cast<double>(s[0]));
 }
 
-double ExpresionConverter::convert(const std::string& s)
+double ExpresionConverter::convert(const std::string& s, int *flag)
 {
     double num;
     //std::cout << "      Evaluating  " << s << " firstchar: " << s[0] << std::endl;
-
+	*flag = 1; // es una expresion
     for (int i = 0; i < 8; i++)
         if (s == ExpresionConverter::a_list[i]){
-            std::cout << "Expresion" << std::endl;
+            //std::cout << "Expresion" << std::endl;
             return (i / 4 == 0 ? atof (s.c_str()) : static_cast<float>(atof (s.c_str())));
         }
-
+	*flag = 0; // no es una expresion
     //if (!isdigit(s[0]) && s[0] != '-' && s[0] != '+')
-    if (s.length() == 1)
+    if (s.length() == 1 && !isdigit(*s.begin()))
 	        num = ExpresionConverter::asciiConversion(s);
     else
             num = ExpresionConverter::numConversion(s);

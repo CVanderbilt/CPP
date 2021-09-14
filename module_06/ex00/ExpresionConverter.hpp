@@ -16,7 +16,7 @@ class ExpresionConverter
     public:
         virtual ~ExpresionConverter(void);
 
-        static double convert(const std::string&);
+        static double convert(const std::string&, int *flag);
 };
 
 #endif
