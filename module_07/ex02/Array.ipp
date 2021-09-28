@@ -5,11 +5,14 @@
 template <typename T>
 Array<T>::Array(void): m_size(0), m_arr(new T [0]){}
 template <typename T>
-Array<T>::Array(unsigned int n): m_size(n), m_arr(new T [n]){}
+Array<T>::Array(unsigned int n): m_size(n), m_arr(new T [n]){
+	for (int i = 0; i < this->m_size; i++)
+		m_arr[i] = T();
+}
 template <typename T>
 Array<T>::Array(const Array& a): m_size(0), m_arr(new T [0]){*this = a;}
 template <typename T>
-Array<T>::~Array(void){}
+Array<T>::~Array(void){delete [] this->m_arr;}
 
 //Operators
 template <typename T>

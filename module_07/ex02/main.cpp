@@ -17,6 +17,12 @@ int main(void)
 
     Array<std::string> str_empty_array;
     Array<std::string> str_array(5);
+
+	std::cout << "Default initialization" << std::endl;
+	for (int i = 0; i < str_array.size(); i++)
+		std::cout << "|" << str_array[i] << "|";
+	std::cout << std::endl;
+
     str_array[0] = "0_string";
     str_array[1] = "1_string";
     str_array[2] = "2_string";
@@ -37,6 +43,12 @@ int main(void)
     std::cout << "Fin" << std::endl;
 
     Array<int> numbers(MAX_VAL);
+	
+	std::cout << "Default initialization" << std::endl;
+	for (int i = 0; i < 5; i++)
+		std::cout << "|" << numbers[i] << "|";
+	std::cout << std::endl;
+
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
     for (int i = 0; i < MAX_VAL; i++)
@@ -49,6 +61,12 @@ int main(void)
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
+		std::cout << "COPY TEST:" << std::endl;
+		tmp[2] = 123321;
+		for (int i = 0; i < 5; i++)
+		{
+			std::cout << "(" << tmp[i] << ", " << test[i] << ")" << std::endl;
+		}
     }
 
     for (int i = 0; i < MAX_VAL; i++)
@@ -76,10 +94,6 @@ int main(void)
         std::cerr << e.what() << '\n';
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
-    {
-        numbers[i] = rand();
-    }
     delete [] mirror;//
     return 0;
 }

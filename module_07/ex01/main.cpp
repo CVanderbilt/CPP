@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Templates.hpp"
 #include "iter.hpp"
 
 void ft_foo(std::string& s)
@@ -35,6 +36,9 @@ int main(void)
 	std::cout << std::endl;
 
 	::iter (arr, -7, &ft_foo);
+
+	std::cout << "Prueba template" << std::endl;
+	::iter (arr, 3, template_print<std::string>);
     
 	return (0);
 }
