@@ -13,15 +13,17 @@ int f(void)
 int main(void)
 {
     srand(time(NULL));
-    Span my_span(3);
+    Span my_span(5);
 
     std::cout << "TEST_1" << std::endl;
     try
     {
-        my_span.addNumber(1);
-        my_span.addNumber(2);
-        my_span.addNumber(3);
-        my_span.addNumber(4);
+		my_span.addNumber(5);
+		my_span.addNumber(3);
+		my_span.addNumber(17);
+		my_span.addNumber(9);
+		my_span.addNumber(11);
+		my_span.addNumber(0);
     }
     catch(const std::exception& e)
     {

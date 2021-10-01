@@ -37,16 +37,29 @@ void Span::addNumber(int n)
 
 int Span::shortestSpan(void) const
 {
+	int diff = 0;
+	bool diff_changed = false;
     if (this->m_set.size() <= 1)
         throw Span::SpanEmptyException();
-    return (*this->m_set.begin());
+    for (std::multiset<int>::iterator it = this->m_set.begin();
+		it != this->m_set.end(); it++)
+	{
+		std::multiset<int>::iterator next = std::next(it);
+		if (next == this->m_set.end())
+			break ;
+		int aux = *next - *it;
+		if (!diff_changed || aux < diff)
+		{
+			diff_changed = true;
+			diff = aux;
+		}
+	}
+	return (diff);
 }
 
 int Span::longestSpan(void) const
 {
-    if (this->m_set.size() <= 1)
-        throw Span::SpanEmptyException();
-    return (*std::prev(this->m_set.end()));
+    return (*std::prev(this->m_set.end()) - *this->m_set.begin());
 }
 
 size_t Span::getMaxSize(void) const{return (this->m_max_size);}

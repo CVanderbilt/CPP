@@ -8,6 +8,7 @@
 #include <iostream>
 #include <stack>
 #include <list>
+#include <vector>
 #include "mutantstack.hpp"
 
 int main(void)
@@ -15,6 +16,7 @@ int main(void)
 	MutantStack<int> mstack;
 	mstack.push(5);
 	mstack.push(17);
+	std::vector<int> v;
 
 	std::cout << "size: " << mstack.size() << std::endl;
 	std::cout << "top: " << mstack.top() << std::endl;
@@ -31,78 +33,86 @@ int main(void)
 	mstack.push(4242);
 	mstack.push(24);
 	mstack.push(2424);
-	mstack.push(0);
+
+	v.push_back(5);
+	v.push_back(3);
+	v.push_back(5);
+	v.push_back(737);
+	v.push_back(42);
+	v.push_back(4242);
+	v.push_back(24);
+	v.push_back(2424);
 
 	{
 		MutantStack<int>::iterator it = mstack.begin();
 		MutantStack<int>::iterator ite = mstack.end();
-
-		++it;
-		--it;
+		std::vector<int>::iterator vit = v.begin();
+	
+		++it; ++vit;
+		--it; --vit;
 
 		std::cout << "mstack content (bottom to top): " << std::endl;
-		while(it != ite)
+		while (it != ite)
 		{
-			std::cout << *it;
-			if (++it == ite)
-				std::cout << std::endl;
-			else
-				std::cout << ", ";
+			std::cout << "(" << *it << ", " << *vit << ")";
+			it++;
+			vit++;
 		}
+		std::cout << std::endl;
 	}
 
 	{
 		MutantStack<int>::const_iterator it = mstack.begin();
 		MutantStack<int>::const_iterator ite = mstack.end();
-
-		++it;
-		--it;
+		std::vector<int>::const_iterator vit = v.begin();
+	
+		++it; ++vit;
+		--it; --vit;
 
 		std::cout << "mstack content (bottom to top): " << std::endl;
-		while(it != ite)
+		while (it != ite)
 		{
-			std::cout << *it;
-			if (++it == ite)
-				std::cout << std::endl;
-			else
-				std::cout << ", ";
+			std::cout << "(" << *it << ", " << *vit << ")";
+			it++;
+			vit++;
 		}
+		std::cout << std::endl;
 	}
 
 	{
-		MutantStack<int>::reverse_iterator it = mstack.rbegin();
-		MutantStack<int>::reverse_iterator ite = mstack.rend();
-
-		++it;
-		--it;
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
+		std::vector<int>::iterator vite = v.end();
+	
+		--ite;
+		--vite;
 
 		std::cout << "mstack content (top to bottom): " << std::endl;
-		while(it != ite)
+		while (it != ite)
 		{
-			std::cout << *it;
-			if (++it == ite)
-				std::cout << std::endl;
-			else
-				std::cout << ", ";
+			std::cout << "(" << *ite << ", " << *vite << ")";
+			ite--;
+			vite--;
 		}
+		std::cout << std::endl;
 	}
 
 	{
-		MutantStack<int>::const_reverse_iterator it = mstack.rbegin();
-		MutantStack<int>::const_reverse_iterator ite = mstack.rend();
-
-		++it;
-		--it;
+		MutantStack<int>::const_iterator it = mstack.begin();
+		MutantStack<int>::const_iterator ite = mstack.end();
+		std::vector<int>::const_iterator vite = v.end();
+	
+		--ite;
+		--vite;
 
 		std::cout << "mstack content (top to bottom): " << std::endl;
-		while(it != ite)
+		while (it != ite)
 		{
-			std::cout << *it;
-			if (++it == ite)
-				std::cout << std::endl;
-			else
-				std::cout << ", ";
+			std::cout << "(" << *ite << ", " << *vite << ")";
+			ite--;
+			vite--;
 		}
+		std::cout << std::endl;
 	}
 
 	std::cout << "---" << std::endl;
