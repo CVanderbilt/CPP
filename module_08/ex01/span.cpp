@@ -59,6 +59,8 @@ int Span::shortestSpan(void) const
 
 int Span::longestSpan(void) const
 {
+	if (this->m_set.size() <= 1)
+        throw Span::SpanEmptyException();
     return (*std::prev(this->m_set.end()) - *this->m_set.begin());
 }
 
